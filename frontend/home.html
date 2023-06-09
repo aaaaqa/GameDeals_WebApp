@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/61ebb60581.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <script defer href= "{{ url_for('static',filename='index.js') }}"></script>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Home</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;  
+        }
+        body {
+            text-decoration: none;
+            list-style: none;
+            min-height: 100vh;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="home">
+    Welcome {{ current_user.username }}!
+    <header>
+        <a href="#" class=logo><img src="{{ url_for('static',filename='logo3.png') }}"/></a>
+
+        <ul class="navbar">
+            <li><a href="#" class="active">Página Principal</a></li>
+            <li><a href="#">Catálogo</a></li>
+            <li><a href="#">Comunidad</a></li>
+        </ul>
+
+        <div class="main">
+            <a href="#" class="user"><i class="ri-user-fill"></i></a>
+        </div>
+    </header>
+
+    <div id="cards">
+        <div class="images">
+            <div>
+            <a href="#"><img src="{{ url_for('static', filename='card1.png') }}"/></a>
+            </div>
+            <div>
+            <a href="#"><img src="{{ url_for('static', filename='card1.png') }}"/></a>
+            </div>
+            <div>
+            <a href="#"><img src="{{ url_for('static', filename='card1.png') }}"/></a>
+            </div>
+        </div>
+        <div class='pagination'>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+        </div>
+    </div>
+
+    <a href="/logout" class="logout">Cerrar Sesión</a>
+</body>
+
+</html>
