@@ -1,0 +1,392 @@
+html, body {  
+  margin:0px;  
+  height:100%;  
+}  
+
+.login {
+  background-color: #020E27;
+  width: 100%;
+  height: 100vh;
+}
+
+h1 {
+    color: white;
+    margin: 3% auto 3% auto;
+    text-align: center;
+    font-size: 64px;
+    font-family: 'Inter';
+    font-weight: bold;
+}
+p {
+  color: black;
+  text-align: center;
+}
+
+.parent-login {
+  background-color: #020E27;
+  text-align: center;
+}
+
+.child-login {
+  background: linear-gradient(180deg, #76F2AE 0%, #0ECCF4 100%);
+  display: flex;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 5%;
+  height: 36vh;
+}
+
+.form-control {
+  border-radius: 3%;
+  height: 50px;
+  width: 80%;
+  color: #6B6B6B;
+  padding: 12px;
+  margin: 15px auto 5px auto;
+  font-family: 'Inter';
+  font-weight: bold;
+  box-shadow: 4px 4px 5px -5px #000000;
+  border: 0;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+.child-login form {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  background-color: #020E27;
+  color: white;
+  border-radius: 3%;
+  width: 80%;
+  height: 45px;
+  margin: 5px auto 5px auto;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+p:after {
+  content: " ";
+  display: block;
+  border-bottom: 2px solid #000000;
+  width: 80%;
+  margin: 10px auto;
+}
+
+.register {
+  background-color: #020E27;
+  width: 100%;
+  height: 100vh;
+}
+
+.parent-register {
+  background-color: #020E27;
+  text-align: center;
+}
+
+.child-register {
+  background: linear-gradient(180deg, #76F2AE 0%, #0ECCF4 100%);
+  display: flex;
+  width: 20%;
+  margin: 15px auto auto auto;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 5%;
+  height: 43vh;
+}
+
+input[type=checkbox] {
+  position: relative;
+  border-radius: 3%;
+  margin: 5px auto 5px auto;
+  margin-top: 10px;
+  padding-top: 5px;
+  border: 0;
+  text-align: center;
+}
+
+.label-checkbox {
+  text-align: left;
+}
+
+.home {
+  background-color: #020E27;
+  width: 100%;
+  height: 100vh;
+}
+
+/*.header {
+  background-color: #020E27;
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.header:after {
+  content: " ";
+  display: block;
+  border-bottom: 1px solid #ffffff;
+  width: 98%;
+  margin: -8px auto 0px auto;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 auto;
+  left: 0;
+}
+
+.nav > a {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px;
+}
+
+
+.nav:after {
+  content: " ";
+  display: block;
+  border-bottom: 1px solid #ffffff;
+  margin: 10px auto;
+  padding-top: 10px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+}
+
+.logo {
+  padding: 0 40px;
+  padding-right: 0;
+}
+
+.image {
+  width: 40%;
+  height: 80%;
+  padding-bottom: 10px;
+}
+
+.nav-menu {
+  display: flex;
+  margin-right: 40px;
+  list-style: none;
+  list-style-position: inside;
+}
+
+.nav-menu-item {
+  font-size: 18px;
+  margin: 0 10px;
+  line-height: 80px;
+  text-align: center;
+  text-transform: uppercase;
+  width: max-content;
+  border-right: 2px solid white;
+}
+
+.nav-menu-link {
+  padding: 8px 12px;
+  border-radius: 3px;
+}
+
+.nav-menu-link:hover,
+.nav-menu-link_active {
+  font-weight: bold;
+}
+
+.nav-toggle {
+  color: white;
+  background: none;
+  border: none;
+  font-size: 30px;
+  padding: 0 20px;
+  line-height: 60px;
+  cursor: pointer;
+  display: none;
+}
+
+.nav-link > .active {
+  transition: 0.5;
+  font-weight: bold;
+}*/
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  transition: all 0.5s ease;
+  border-bottom: 1px solid white;
+  line-height: 2px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 40%;
+  height: 70%;
+  padding: 0 15px;
+  margin-bottom: 10px;
+}
+
+.navbar {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 7%;
+}
+
+ul.navbar > li {
+  display:inline-block; 
+  padding:0 7px; 
+  position:relative;
+}
+
+ul.navbar > li:not(:last-child)::after {
+  content:""; 
+  border:1px solid #ffffff;
+  border-width: 50px 1px 0 0;
+  position:absolute; 
+  right:-3px; 
+  top:-25px; 
+  height:100%;
+}
+
+
+/*ul li{
+  display:inline-block; 
+  padding:0 7px; 
+  position:relative;
+}
+
+ul li:not(:last-child)::after{
+  content:""; 
+  border:1px solid #ffffff;
+  border-width: 50px 1px 0 0;
+  position:absolute; 
+  right:-3px; 
+  top:-25px; 
+  height:100%;
+}*/
+
+.navbar a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.3rem;
+  padding: 5px  0;
+  margin: 0 30px;
+  transition: all 0.50s ease;
+}
+
+.navbar a.active {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.main {
+  display: flex;
+  position: absolute;
+  top: 40%;
+  right: 0;
+}
+
+.main a{
+  margin-right: 25px;
+  margin-left: 10px;
+  font-size: 3rem;
+  transition: all 0.50s ease;
+  color: white;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.logout {
+  color: white;
+  font-size: 0rem;
+  text-decoration: none;
+}
+
+#cards {
+  display: flex;
+  position: relative;
+  align-items: center;
+  width: 100%;
+  height: 425px;
+  top: 5%;
+}
+
+
+#cards .images a img {
+  position: relative;
+  max-width:50vw;
+  max-height:35vh;
+  border-radius: 5%;
+  width: auto;
+  height: auto;
+}
+
+#cards .images {
+  display: flex;
+  margin: auto;
+}
+
+#cards .images div {
+  flex: 33.33%;
+  padding: 15px;
+}
+
+.pagination {
+  position: absolute;
+  left: 50%;
+  align-self: flex-end;
+}
+
+.pagination button {
+  border: 2px solid white;
+  width: 20px;
+  height: 20px;
+  font-weight: 100;
+  border-radius: 100%;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.pagination button:focus {
+  border: 2px solid #0ECCF4;
+  background-color: #0ECCF4;
+  transition: all 0.50s ease;
+}
+
+.pagination button:not(:last-child) {margin-right: 5px;}
+
+.pagination button:nth-child(1) { left: -35px; }
+.pagination button:nth-child(2) { left: -5px; }
+.pagination button:nth-child(3) { left: 5px; }
+.pagination button:nth-child(4) { left: 35px; }
+
+.test-active {
+  border: 2px solid red;
+}
