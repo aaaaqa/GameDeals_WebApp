@@ -2,6 +2,10 @@ from flask import Flask
 import sqlalchemy
 from flask_login import LoginManager
 
+import sys
+
+sys.path.insert(0, './scripts/')
+
 from models import db, Users
 
 from index import index
@@ -10,10 +14,10 @@ from logout import logout
 from register import register
 from home import home
 
-app = Flask(__name__, static_folder='../frontend/static')
+app = Flask(__name__, static_folder='./templates/static')
 
 app.config['SECRET_KEY'] = 'secret_key'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../database.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../scripts/database.db'
 
 login_manager = LoginManager()
 login_manager.init_app(app)

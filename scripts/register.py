@@ -4,7 +4,7 @@ from werkzeug.security import generate_password_hash
 
 from models import db, Users
 
-register = Blueprint('register', __name__, template_folder='../frontend')
+register = Blueprint('register', __name__, template_folder='../templates')
 login_manager = LoginManager()
 login_manager.init_app(register)
 
