@@ -13,6 +13,7 @@ from login import login
 from logout import logout
 from register import register
 from home import home
+from profile import profile
 
 app = Flask(__name__, static_folder='./templates/static')
 
@@ -29,6 +30,7 @@ app.register_blueprint(login)
 app.register_blueprint(logout)
 app.register_blueprint(register)
 app.register_blueprint(home)
+app.register_blueprint(profile)
 
 @login_manager.user_loader
 def load_user(user_id):

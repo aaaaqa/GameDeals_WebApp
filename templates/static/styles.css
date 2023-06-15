@@ -18,7 +18,7 @@ h1 {
     font-family: 'Inter';
     font-weight: bold;
 }
-p {
+.child-login p {
   color: black;
   text-align: center;
 }
@@ -79,7 +79,7 @@ p {
   padding: 5px;
 }
 
-p:after {
+.child-login p:after {
   content: " ";
   display: block;
   border-bottom: 2px solid #000000;
@@ -217,6 +217,14 @@ ul.navbar > li:not(:last-child)::after {
 .navbar a.active {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
+}
+
+.menu {
+  color: white;
+  height: auto;
+  display: none;
+  position: absolute;
+  top: 10%;
 }
 
 .main {
@@ -360,20 +368,20 @@ ul.navbar > li:not(:last-child)::after {
   margin: auto;
 }
 
-#hotsales .s2 div #discount {
-  display: table;
-  position: relative;
+#discount {
+  display: table!important;
+  position: relative!important;
   background: linear-gradient(180deg, #76F2AE 0%, #0ECCF4 100%);
   left: 1%;
-  width: 75px;
-  height: 31px;
+  width: 75px!important;
+  height: 31px!important;
   top: -13%;
   border-radius: 15px;
-  text-align: center;
+  text-align: center!important;
   z-index: 2;
 }
 
-#hotsales .s2 div #discount span {
+#discount span {
   display: table-cell;
   color: black;
   vertical-align: middle;
@@ -410,10 +418,333 @@ ul.navbar > li:not(:last-child)::after {
   margin: auto;
   text-align: center;
   max-width: 60%;
+  margin-top: 1vh;
 }
 
 #indies .i2 a img {
   max-width: 100%;
   max-height: 100%;
   display: block;
+}
+
+.profile {
+  background-color: #020E27;
+  width: 100vw;
+  height: 100vh;
+}
+
+#profile-body {
+  margin-top: 85.31px;
+  position: absolute;
+  width: 100%;
+  display: grid;
+  height: 95%;
+  grid-template-columns: 25% 75%;
+  grid-template-areas: 
+    "p1 p2"
+}
+
+.p1 {
+  display: grid;
+  grid-template-rows: 40% 60%;
+  grid-template-areas: 
+    "p3"
+    "p4";
+  color: white;
+  border-right: 1px solid white;
+  text-align: center;
+}
+
+.p3 {
+  width: 90%;
+  position: relative;
+  margin: 0 auto;
+  border-bottom: 1px solid white;
+}
+
+.p3 a {
+  display: block;
+  margin-top: 10%;
+  color: white;
+  height: fit-content;
+  font-size: 10rem;
+}
+
+.p3 h1 {
+  font-size: 32px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.p3 span {
+  color: #76F2AE;
+  font-size: 16px;
+}
+
+.p4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter';
+  font-size: 24px;
+  height: fit-content;
+}
+
+.p4 ul li {
+  margin-top: 60px;
+  cursor: pointer;
+}
+
+.p2 {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-areas: 
+    "p5"
+    "p6";
+  color: white;
+}
+
+#recomendaciones {
+  display: block;
+  font-weight: bold;
+}
+
+#gamelist {
+  display: block;
+}
+
+#conections {
+  display: block;
+}
+
+.p2 #settings {
+  display: none;
+}
+
+#d1 {
+  position: relative;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-areas: 
+    "d1_1"
+    "d1_2";
+  height: 100%;
+  width: 100%;
+}
+
+#d1 div {
+  margin-top: 30px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  height: fit-content;
+  text-align: left;
+  width: 95%;
+}
+
+#d1 div h1 {
+  font-family: 'Inter';
+  font-size: 48px;
+  text-align: left;
+  font-weight: bold;
+  width: 100%;
+  top: 0;
+  margin: 0 auto!important;
+  padding-left: 2.5%;
+  padding-bottom: 10px;
+}
+
+.anchor {
+  font-size: 16px;
+  display: block;
+  text-decoration: underline;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: white;
+  cursor: pointer;
+}
+
+.d1_1 {
+  position: relative;
+  display: grid;
+  grid-template-rows: 15% 75% 10%;
+  grid-template-areas: 
+    "title"
+    "d1_images"
+    "anchor";
+  height: 100%;
+  width: 95%;
+}
+
+.d1_anchor {
+  padding-top: 5px;
+  padding-left: 2.5%;
+}
+
+.d1_2 {
+  position: absolute;
+  top: 80%;
+  display: grid;
+  grid-template-rows: 15% 75% 10%;
+  grid-template-areas: 
+    "title"
+    "d1_images"
+    "anchor";
+  height: 100%;
+  width: 95%;
+}
+
+.title {
+  position: relative;
+}
+
+.d1_images {
+  display: grid!important;
+  margin-left: 2.5%!important;
+  border-radius: 15px;
+  width: 95%!important;
+  grid-template-rows: auto auto;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-areas: 
+    "s3 s4 s5 s6 s7";
+  background-color: #1C2C4E;
+  margin-top: 0!important;
+}
+
+.d1_images div img {
+  width: 85%;
+  height: auto;
+  z-index: 1;
+  position: relative;
+  display: block;
+  margin: auto;
+  border-radius: 15px;
+}
+
+.d1_images div #discount {
+  margin: 0;
+  top: -20px!important;
+  left: -10px!important;
+}
+
+#d2 {
+  position: relative;
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+
+#d2 div {
+  margin-top: 30px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  height: fit-content;
+  text-align: left;
+  width: 95%;
+}
+
+#d2 div h1 {
+  font-family: 'Inter';
+  font-size: 48px;
+  text-align: left;
+  font-weight: bold;
+  width: 100%;
+  top: 0;
+  margin: 0 auto!important;
+  padding-left: 2.5%;
+  padding-bottom: 10px;
+}
+
+.d2_1 {
+  position: relative;
+  display: grid;
+  grid-template-rows: 15% 75% 10%;
+  grid-template-areas: 
+    "title"
+    "d2_images"
+    "anchor";
+  height: 100%;
+  width: 95%;
+}
+
+.d2_images {
+  width: 90%;
+  display: grid!important;
+  margin-top: 0!important;
+  grid-template-rows: auto auto;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-area: "s1 s2 s3 s4"
+  "s5 s6 s7 s8";
+}
+
+.d2_images div img {
+  width: 85%;
+  height: auto;
+  z-index: 1;
+  position: relative;
+  display: block;
+  margin: auto;
+  border-radius: 15px;
+}
+
+.d2_1 a {
+  left: 0;
+  margin-top: 10px;
+}
+
+#d4 {
+  position: relative;
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+
+#d4 div {
+  margin-top: 30px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  height: fit-content;
+  text-align: left;
+  border-bottom: 1px solid white;
+  width: 95%;
+  cursor: pointer;
+}
+
+#d4 .d4_1 {
+  border: 0;
+}
+
+#d4 div h1 {
+  position: relative;
+  margin: auto;
+  padding-top: -10px;
+  width: 100%;
+
+  font-size: 36px;
+  text-align: left;
+  font-family: 'Inter';
+  font-weight: 100;
+}
+
+#d4 div:first-child h1 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+#d4 div:not(:first-child) {
+  margin-top: 80px;
+}
+
+#d4 div p {
+  color: white;
+  font-size: 18px;
+  line-height: 36px;
+  padding-bottom: 10px;
 }
