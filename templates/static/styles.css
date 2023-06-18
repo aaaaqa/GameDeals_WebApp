@@ -381,6 +381,7 @@ ul.navbar > li:not(:last-child)::after {
   border-radius: 15px;
   text-align: center!important;
   z-index: 2;
+  font-weight: 700;
 }
 
 #discount span {
@@ -853,4 +854,53 @@ ul.navbar > li:not(:last-child)::after {
   background-color: #020E27;
   position:relative;
   top:2.5em;
+}
+
+.order {
+  display: flex;
+  position: relative;
+  font-family: 'Inter';
+  font-size: 20px;
+  text-align: left;
+  font-weight: bold;
+  color: white;
+  background-color:#020E27;
+  padding:25px;
+  top:80px;
+  height:100px;
+}
+
+.catalog {
+  position:relative;
+  display: grid;
+  padding:1rem;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  height:40%;
+  width:90%;
+  top: 40px;
+  margin:auto;
+}
+
+.catalog div img {
+  width: 85%;
+  height: auto;
+  z-index: 1;
+  position: relative;
+  display: block;
+  margin:auto;
+  border-radius: 5px;
+}
+
+.catalog div .price {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color:#76F2AE;
+}
+
+.crossed {
+  text-decoration-line: line-through;
 }
