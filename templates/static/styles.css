@@ -212,12 +212,13 @@ ul.navbar > li:not(:last-child)::after {
   padding: 5px  0;
   margin: 0 30px;
   transition: all 0.50s ease;
-  font-family: "Inter";
+  font-family: 'Inter';
 }
 
 .navbar a.active {
   font-weight: bold;
   color: white;
+  font-weight: bold;
 }
 
 .menu {
@@ -748,4 +749,108 @@ ul.navbar > li:not(:last-child)::after {
   font-size: 18px;
   line-height: 36px;
   padding-bottom: 10px;
+}
+
+
+/* Community categories*/
+
+.category-container {
+  width: 80%;
+  height: 185px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  border-radius: 12px;
+  margin-bottom: 25px;
+  flex-direction: row;
+  justify-content: flex-end;
+  background-color: #1C2C4E;
+}
+.category-category-details {
+  width: 45%;
+  height: 100%;
+  display: flex;
+  align-self: flex-start;
+  align-items: flex-start;
+  padding-left: 2%;
+  padding-right: 2%;
+  flex-direction: column;
+  justify-content: center;
+}
+.category-container1 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-direction: row;
+}
+.category-titulo {
+  color: #ffffff;
+  font-size: 20px;
+  font-style: normal;
+  text-align: left;
+  font-weight: 800;
+}
+.category-temas {
+  color: #ffffff;
+  right: 0px;
+  bottom: 0px;
+  margin: auto;
+  position: absolute;
+  align-self: flex-start;
+  font-style: normal;
+  text-align: right;
+  font-weight: 300;
+}
+.category-description {
+  color: #ffffff;
+}
+.category-last-post {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  align-self: flex-start;
+  align-items: center;
+  padding-right: 16px;
+  flex-direction: column;
+  justify-content: center;
+}
+.category-ultimotema {
+  color: #ffffff;
+  align-self: flex-end;
+  font-style: normal;
+  text-align: right;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.category-textoultimo {
+  color: #ffffff;
+  width: 100%;
+  align-self: flex-end;
+  font-style: normal;
+  text-align: right;
+  font-weight: 400;
+}
+.category-category-image {
+  width: 30%;
+  height: 100%;
+  align-self: flex-end;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.community-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex: 0 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #020E27;
+  position:relative;
+  top:2.5em;
 }

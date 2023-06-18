@@ -13,6 +13,7 @@ from login import login
 from logout import logout
 from register import register
 from home import home
+from community import community
 from profile import profile
 from catalog import catalog
 
@@ -32,6 +33,7 @@ app.register_blueprint(logout)
 app.register_blueprint(register)
 app.register_blueprint(home)
 app.register_blueprint(profile)
+app.register_blueprint(community)
 app.register_blueprint(catalog)
 
 @login_manager.user_loader
