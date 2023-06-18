@@ -207,15 +207,18 @@ ul.navbar > li:not(:last-child)::after {
 
 .navbar a {
   text-decoration: none;
-  color: white;
+  color: #AAAAAA;
   font-size: 1.3rem;
   padding: 5px  0;
   margin: 0 30px;
   transition: all 0.50s ease;
+  font-family: 'Inter';
 }
 
 .navbar a.active {
   font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: white;
   font-weight: bold;
 }
 
