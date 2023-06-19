@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wishlist</title>
+</head>
+
+<body>
+    <h1>Wish List</h1>
+    <div id = "top-div">
+        <form action = "/" method="POST">
+            <input type = "text" id = "item" name = "item">
+            <input type="submit" value="Add" name="addButton">
+            
+        </form>
+    </div>
+    <div id = "bottom-div">
+        {% if wishlist|length <1 %}
+        <h4>Add items to the wishlist</h4>
+        {%else%}
+
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Action</th>
+            </tr>
+            {%for item in wishlist%}
+            <tr>
+                <td>{{item}}</td>
+                <td><a href = "{{url_for('delete',item = item)}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+
+        
+    </div>
+</body>
+</html>
+
