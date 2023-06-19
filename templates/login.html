@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <title>Game Deals - LogIn</title>
+</head>
+
+<body>
+<div class="login">
+    <div class="parent-login">
+        <img src="{{url_for('static', filename='logo.png')}}" alt='logo'>
+        <h1>BIENVENIDO</h1>
+        <div class="child-login">
+        <form method="POST" action="/login" class="input">
+            <input type="text" name="username" class="form-control" placeholder="Usuario">
+            <input type="password" name="password" class="form-control" placeholder="Contraseña">
+            <button type="submit" class="button form-control">Ingresar</button>
+            <p>¿Olvidaste tu contraseña?</p>
+            <button class="form-control"><a class="button" href="/register">Crear una cuenta nueva</a></button>
+        </form>
+        <div>
+    </div>
+</div>
+</body>
+
+</html>
