@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+</head>
+<body>
+    <h1>User Profile</h1>
+    <p>Name: {{ user.name }}</p>
+    <p>Age: {{ user.age }}</p>
+    <p>Location: {{ user.location }}</p>
+
+    <h2>Games</h2>
+    <ul>
+        {% for game in user.games %}
+            <li>
+                <img src="{{ game.image_url }}" alt="{{ game.name }}" height="100">
+                {{ game.name }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -2,9 +2,13 @@
 __pycache__/
 
 # Distribution / packaging
+
 lib/
 
 #flask stuff
 app/
 instance/
 requirements.txt
+=======
+lib/
+
