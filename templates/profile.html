@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/61ebb60581.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <script defer href= "{{ url_for('static',filename='index.js') }}"></script>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <title>GameDeals - {{ current_user.username }}</title>
+
+    <script>
+
+        function openRecomendaciones(){
+            l1 = document.getElementById("l1");
+            l2 = document.getElementById("l2");
+            l3 = document.getElementById("l3");
+            l4 = document.getElementById("l4");
+
+            d1 = document.getElementById("d1");
+            d2 = document.getElementById("d2");
+            d3 = document.getElementById("d3");
+            d4 = document.getElementById("d4");
+
+            l1.style.fontWeight = "bold";
+            l2.style.fontWeight = "100";
+            l3.style.fontWeight = "100";
+            l4.style.fontWeight = "100";
+
+            d1.style.display = "grid";
+            d2.style.display = "none";
+            d3.style.display = "none";
+            d4.style.display = "none";
+
+            console.log(d4.style.display);
+        }
+
+        function openGameList(){
+            l1 = document.getElementById("l1");
+            l2 = document.getElementById("l2");
+            l3 = document.getElementById("l3");
+            l4 = document.getElementById("l4");
+
+            d1 = document.getElementById("d1");
+            d2 = document.getElementById("d2");
+            d3 = document.getElementById("d3");
+            d4 = document.getElementById("d4");
+
+            l1.style.fontWeight = "100";
+            l2.style.fontWeight = "bold";
+            l3.style.fontWeight = "100";
+            l4.style.fontWeight = "100";
+
+            d1.style.display = "none";
+            d2.style.display = "grid";
+            d3.style.display = "none";
+            d4.style.display = "none";
+        }
+
+        function openConections(){
+            l1 = document.getElementById("l1");
+            l2 = document.getElementById("l2");
+            l3 = document.getElementById("l3");
+            l4 = document.getElementById("l4");
+
+            d1 = document.getElementById("d1");
+            d2 = document.getElementById("d2");
+            d3 = document.getElementById("d3");
+            d4 = document.getElementById("d4");
+
+            l1.style.fontWeight = "100";
+            l2.style.fontWeight = "100";
+            l3.style.fontWeight = "bold";
+            l4.style.fontWeight = "100";
+
+            d1.style.display = "none";
+            d2.style.display = "none";
+            d3.style.display = "grid";
+            d4.style.display = "none";
+        }
+
+        function openSettings(){
+            l1 = document.getElementById("l1");
+            l2 = document.getElementById("l2");
+            l3 = document.getElementById("l3");
+            l4 = document.getElementById("l4");
+
+            d1 = document.getElementById("d1");
+            d2 = document.getElementById("d2");
+            d3 = document.getElementById("d3");
+            d4 = document.getElementById("d4");
+            
+            l1.style.fontWeight = "100";
+            l2.style.fontWeight = "100";
+            l3.style.fontWeight = "100";
+            l4.style.fontWeight = "bold";
+
+            d1.style.display = "none";
+            d2.style.display = "none";
+            d3.style.display = "none";
+            d4.style.display = 'grid';
+
+            console.log(d4.style.display);
+        }
+    </script>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;  
+        }
+        body {
+            text-decoration: none;
+            list-style: none;
+            min-height: 100vh;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="profile">
+        <header>
+            <a href="#" class=logo><img src="{{ url_for('static',filename='logo3.png') }}"/></a>
+
+            <ul class="navbar">
+                <li><a href="/home">Página Principal</a></li>
+                <li><a href="/catalog">Catálogo</a></li>
+                <li><a href="#">Comunidad</a></li>
+            </ul>
+
+            <div class="main">
+                <a href="/profile" class="user"><i class="ri-user-fill"></i></a>
+            </div>
+        </header>
+
+        <div id="profile-body">
+            <div class="p1">
+                <div class="p3">
+                    <a href="/profile" class="user"><i class="ri-user-fill"></i></a>
+                    <h1>{{ current_user.username }}</h1>
+                    <span>Online</span>
+                </div>
+                <div class="p4">
+                    <ul>
+                        <li onclick="openRecomendaciones()" id="l1" style="font-weight: bold;">Recomendaciones</li>
+                        <li onclick="openGameList()" id="l2">Lista de Juegos</li>
+                        <li onclick="openConections()" id="l3">Conexiones</li>
+                        <li onclick="openSettings()" id="l4">Ajuste de cuenta</li>
+                    <ul>
+                </div>
+            </div>
+            <div class="p2">
+                <div id="d4">
+                    <div class="d4_1">
+                        <h1>Ajuste de cuenta</h1>
+                    </div>
+                    <div class="d4_2">
+                        <h1>Información de cuenta</h1>
+                        <p>Administra tus datos que se muestran y datos personales, como tu nombre y real y correo electrónico.</p>
+                    </div>
+                    <div class="d4_3">
+                        <h1>Seguridad y Privacidad</h1>
+                        <p>Cambio de contraseña y ajuste de preferencias de colección de datos</p>
+                    </div>
+                    <div class="d4_4">
+                        <h1>Preferencias</h1>
+                        <p>Ayúdanos a ayudarte y mejorar nuestra plataforma para que tengas una experiencia más personalizada</p>
+                    </div>
+                </div>
+                <div id="d1">
+                    <div class="d1_1">
+                        <h1 class="title">COMO EN CASA</h1>
+                        <div class="d1_images">
+                            <div class="s3">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <div id="discount">
+                                    <span>15%</span>
+                                </div>
+                            </div>
+                            <div class="s4">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <div id="discount">
+                                    <span>15%</span>
+                                </div>
+                            </div>
+                            <div class="s5">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <div id="discount">
+                                    <span>15%</span>
+                                </div>
+                            </div>
+                            <div class="s6">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <div id="discount">
+                                    <span>15%</span>
+                                </div>
+                            </div>
+                            <div class="s7">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <div id="discount">
+                                    <span>15%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d1_anchor">
+                            <a href="#" class="anchor">Más...</a>
+                        </div>
+                    </div>
+                    <div class="d1_2">
+                        <h1 class="title">EXPERMIENTA UN POCO</h1>
+                        <div class="d1_images">
+                            <div class="s3">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <div id="discount">
+                                    <span>15%</span>
+                                </div>
+                            </div>
+                            <div class="s4">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <div id="discount">
+                                    <span>15%</span>
+                                </div>
+                            </div>
+                            <div class="s5">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <div id="discount">
+                                    <span>15%</span>
+                                </div>
+                            </div>
+                            <div class="s6">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <div id="discount">
+                                    <span>15%</span>
+                                </div>
+                            </div>
+                            <div class="s7">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <div id="discount">
+                                    <span>15%</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d1_anchor">
+                            <a href="#" class="anchor">Más...</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="d2">
+                    <div class="d2_1">
+                        <h1 class="title">Tu lista de juegos</h1>
+                        <div class="d2_images">
+                            <div class="s1">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                            </div>
+                            <div class="s2">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                            </div>
+                            <div class="s3">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                            </div>
+                            <div class="s4">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                            </div>
+                            <div class="s5">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                            </div>
+                            <div class="s6">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                            </div>
+                            <div class="s7">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                            </div>
+                            <div class="s8">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                            </div>
+                        </div>
+                        <div class="anchor">
+                            <a>Añadir juegos...</a>
+                        </div>
+                    </div>
+                </div>
+                <div id="d3">
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+
+</html>

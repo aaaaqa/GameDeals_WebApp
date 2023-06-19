@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/61ebb60581.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <script defer href= "{{ url_for('static',filename='index.js') }}"></script>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <title>Game Deals</title>
+
+    <script>
+        function openMenu(){
+            elem = document.getElementById("menu");
+
+            if(elem.style.display === "block"){
+                elem.style.display = "none";
+            }
+            else {
+                elem.style.display = "block";
+            }
+        }
+    </script>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;  
+        }
+        body {
+            text-decoration: none;
+            list-style: none;
+            min-height: 100vh;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="home">
+    Welcome {{ current_user.username }}!
+    <header>
+        <a href="#" class=logo><img src="{{ url_for('static',filename='logo3.png') }}"/></a>
+
+        <ul class="navbar">
+            <li><a href="/home">Página Principal</a></li>
+            <li><a href="/catalog">Catálogo</a></li>
+            <li><a href="#" class="active">Comunidad</a></li>
+        </ul>
+
+        <div class="main">
+            <a href="/profile" class="user" onclick="openMenu()"><i class="ri-user-fill"></i></a>
+        </div>
+    </header>
+    <div class="community-container">
+        <div class="category-container">
+            <div class="category-category-details">
+              <div class="category-container1">
+                <span class="category-titulo">
+                  <span>Discusión de Ofertas</span>
+                </span>
+                <span class="category-temas"><span>3,619 temas</span></span>
+              </div>
+              <span class="category-description">
+                <span>
+                  Experiencias, opiniones y consejos sobre las últimas ofertas y
+                  descuentos en videojuegos.
+                </span>
+              </span>
+            </div>
+            <div class="category-last-post">
+              <span class="category-ultimotema"><span>Último tema</span></span>
+              <span class="category-textoultimo">
+                <span>¿Expectativas de venta directa para Xbox Series...</span>
+              </span>
+            </div>
+            <img
+              alt="image"
+              src="{{ url_for('static', filename='postimg1.png') }}"
+              class="category-category-image"
+            />
+          </div>
+          <div class="category-container">
+            <div class="category-category-details">
+              <div class="category-container1">
+                <span class="category-titulo">
+                  <span>Noticias de Videojuegos</span>
+                </span>
+                <span class="category-temas"><span>169 temas</span></span>
+              </div>
+              <span class="category-description">
+                <span>
+                    Todo lo que necesitas saber sobre los videojuegos, sus ofertas y más.
+                </span>
+              </span>
+            </div>
+            <div class="category-last-post">
+              <span class="category-ultimotema"><span>Último tema</span></span>
+              <span class="category-textoultimo">
+                <span>Umarangi Generation y 4 juegos más están dejando el...</span>
+              </span>
+            </div>
+            <img
+              alt="image"
+              src="{{ url_for('static', filename='postimg2.png') }}"
+              class="category-category-image"
+            />
+          </div>
+          <div class="category-container category-root-class-name1">
+            <div class="category-category-details">
+              <div class="category-container1">
+                <span class="category-titulo">
+                  <span>Discusión General</span>
+                </span>
+                <span class="category-temas"><span>13,196 temas</span></span>
+              </div>
+              <span class="category-description">
+                <span>
+                    Habla sobre temas que no calzan muy bien en otras categorías.
+                </span>
+              </span>
+            </div>
+            <div class="category-last-post">
+              <span class="category-ultimotema"><span>Último tema</span></span>
+              <span class="category-textoultimo">
+                <span>¿Qué consejo le darías a un nuevo indie dev?</span>
+              </span>
+            </div>
+            <img
+              alt="image"
+              src="{{ url_for('static', filename='postimg3.png') }}"
+              class="category-category-image"
+            />
+        </div>
+    </div>
+</div>
+
+    <a href="/logout" class="logout">Cerrar Sesión</a>
+</body>
+
+</html>

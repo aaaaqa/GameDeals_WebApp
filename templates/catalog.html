@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/61ebb60581.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <script defer href= "{{ url_for('static',filename='index.js') }}"></script>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <title>Game Deals</title>
+
+    <script>
+        function openMenu(){
+            elem = document.getElementById("menu");
+
+            if(elem.style.display === "block"){
+                elem.style.display = "none";
+            }
+            else {
+                elem.style.display = "block";
+            }
+        }
+    </script>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;  
+        }
+        body {
+            text-decoration: none;
+            list-style: none;
+            min-height: 100vh;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="home">
+    
+    <header>
+        <a href="#" class=logo><img src="{{ url_for('static',filename='logo3.png') }}"/></a>
+
+        <ul class="navbar">
+            <li><a href="/home">Página Principal</a></li>
+            <li><a href="/#" class="active">Catálogo</a></li>
+            <li><a href="/community">Comunidad</a></li>
+        </ul>
+
+        <div class="main">
+            <a href="/profile" class="user" onclick="openMenu()"><i class="ri-user-fill"></i></a>
+        </div>
+    </header>
+
+    <div class="order">
+        Ordenar por: Relevancia (Mayor-Menor)
+    </div>
+
+    <div class="catalog">
+        <div>
+            <img src="https://image.api.playstation.com/vulcan/img/cfn/11307uYG0CXzRuA9aryByTHYrQLFz-HVQ3VVl7aAysxK15HMpqjkAIcC_R5vdfZt52hAXQNHoYhSuoSq_46_MT_tDBcLu49I.png">
+            <div id="discount">
+                <span>60%</span>
+            </div>
+            <div class="price">
+                <span class="crossed">
+                    $30.00
+                </span>
+                 - $12.00
+            </div>
+        </div>
+        <div>
+            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202111/3013/cKZ4tKNFj9C00giTzYtH8PF1.png">
+            <div id="discount">
+                <span>77%</span>
+            </div>
+            <div class="price">
+                <span class="crossed">
+                    $60.00
+                </span>
+                 - $19.80
+            </div>
+        </div>
+        <div>
+            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202208/0921/dR9KJAKDW2izPbptHQbh3rnj.png">
+            <div id="discount">
+                <span>30%</span>
+            </div>
+            <div class="price">
+                <span class="crossed">
+                    $60.00
+                </span>
+                 - $42.00
+            </div>
+        </div>
+        <div>
+            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202210/0706/EVWyZD63pahuh95eKloFaJuC.png">
+            <div id="discount">
+                <span>30%</span>
+            </div>
+            <div class="price">
+                <span class="crossed">
+                    $60.00
+                </span>
+                 - $42.00
+            </div>
+        </div>
+        <div>
+            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202009/1710/UUnpHLJqLAIJX5HioswiPuAm.png">
+            <div id="discount">
+                <span>40%</span>
+            </div>
+            <div class="price">
+                <span class="crossed">
+                    $40.00
+                </span>
+                 - $24.00
+            </div>
+        </div>
+    </div>
+
+    <div class="catalog">
+        <div>
+            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202105/0718/2gh2zdt2MQCLWLGkB9HTPGmR.png">
+            <div id="discount">
+                <span>20%</span>
+            </div>
+            <div class="price">
+                <span class="crossed">
+                    $60.00
+                </span>
+                 - $48.00
+            </div>
+        </div>
+        <div>
+            <img src="https://image.api.playstation.com/cdn/UP3893/CUSA08801_00/pDm46Nye9OTyuH210Se9cWyCVx7OuXWb.png">
+            <div id="discount">
+                <span>FREE</span>
+            </div>
+            <div class="price">
+                <span class="crossed">
+                    $20.00
+                </span>
+                 - $0.00
+            </div>
+        </div>
+        <div>
+            <img src="https://cdn.vox-cdn.com/thumbor/-TXaI5jm9I9QBdtnPasKUGm2LK8=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/24585818/mageseeker.jpg">
+            <div id="discount">
+                <span>15%</span>
+            </div>
+            <div class="price">
+                <span class="crossed">
+                    $30.00
+                </span>
+                 - $25.50
+            </div>
+        </div>
+        <div>
+            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202101/0812/FkzwjnJknkrFlozkTdeQBMub.png">
+            <div id="discount">
+                <span>46%</span>
+            </div>
+            <div class="price">
+                <span class="crossed">
+                    $60.00
+                </span>
+                 - $32.40
+            </div>
+        </div>
+        <div>
+            <img src="https://image.api.playstation.com/vulcan/ap/rnd/202010/0114/ERNPc4gFqeRDG1tYQIfOKQtM.png">
+            <div id="discount">
+                <span>66%</span>
+            </div>
+            <div class="price">
+                <span class="crossed">
+                    $60.00
+                </span>
+                 - $20.40
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <a href="/logout" class="logout">Cerrar Sesión</a>
+</body>
+
+</html>
