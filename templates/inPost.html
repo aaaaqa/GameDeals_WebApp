@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/61ebb60581.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <script defer href= "{{ url_for('static',filename='index.js') }}"></script>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <title>Game Deals</title>
+
+    <script>
+        function openMenu(){
+            elem = document.getElementById("menu");
+
+            if(elem.style.display === "block"){
+                elem.style.display = "none";
+            }
+            else {
+                elem.style.display = "block";
+            }
+        }
+    </script>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            list-style: none;  
+        }
+        body {
+            text-decoration: none;
+            list-style: none;
+            min-height: 100vh;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="home">
+    Welcome {{ current_user.username }}!
+      <header>
+          <a href="#" class=logo><img src="{{ url_for('static',filename='logo3.png') }}"/></a>
+
+          <ul class="navbar">
+              <li><a href="/home">Página Principal</a></li>
+              <li><a href="/catalog">Catálogo</a></li>
+              <li><a href="/community" class="active">Comunidad</a></li>
+          </ul>
+
+          <div class="main">
+              <a href="/profile" class="user" onclick="openMenu()"><i class="ri-user-fill"></i></a>
+          </div>
+      </header>
+
+      <div class="in-post">
+        <div class="in-post-container">
+          <div class="in-post-creation-container">
+            <span class="in-post-made-by">
+              <span>creado por woodsmoke</span>
+              <br />
+            </span>
+            <span class="in-post-date">
+              <span>15 de mayo de 2023</span>
+              <br />
+            </span>
+          </div>
+          <span class="in-post-body">
+            <span>
+              Muchos de nuestros lectores ya están esperando con ansias que se
+              anuncien los nuevos juegos de Xbox Game Pass para la segunda
+              quincena de este mes de mayo, que ha dado comienzo hoy mismo. Pero
+              como viene siendo costumbre, antes de que aterricen los nuevos
+              títulos a los diferentres catálogos del servicio, desgraciadamente
+              nos toca apretar los dientes y despedirnos de algunos títulos. Así
+              que sin mucho más tiempo de espera, hoy mismo abandonan Xbox Game
+              Pass Before We Leave y otros 4 juegos.
+            </span>
+            <br />
+            <br />
+            <span>
+              Es muy probable que muchos de vosotros vayáis a echar de menos
+              algunos de los 5 juegos que dejarán de estar disponibles en Xbox
+              Game Pass en las próximas horas, más en concreto hoy a las 0:00
+              (hora española). Ya sabéis que quitando de la gran mayoría de
+              juegos exclusivos, el resto de ellos sólo están disponibles en los
+              diferentes catálogos del servicio por un tiempo limitado, a no ser
+              que luego se renueven contraros. Así que sin más dilación, os
+              vamos a dejar con los juegos que hoy abandonan Xbox Game Pass.
+            </span>
+          </span>
+          <img
+            src="{{ url_for('static', filename='postimg2.png') }}"
+            alt="image"
+            class="in-post-image"
+          />
+        </div>
+      </div>
+    </div>
+
+    <a href="/logout" class="logout">Cerrar Sesión</a>
+</body>
+
+</html>
