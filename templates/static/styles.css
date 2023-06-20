@@ -718,6 +718,7 @@ ul.navbar > li:not(:last-child)::after {
   border-bottom: 1px solid white;
   width: 95%;
   cursor: pointer;
+  font-family: 'Inter';
 }
 
 #d4 .d4_1 {
