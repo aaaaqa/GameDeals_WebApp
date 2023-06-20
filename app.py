@@ -18,6 +18,7 @@ from profile import profile
 from catalog import catalog
 from news import news
 from newTopic import newTopic
+from inPost import inPost
 
 app = Flask(__name__, static_folder='./templates/static')
 
@@ -65,6 +66,7 @@ app.register_blueprint(community)
 app.register_blueprint(catalog)
 app.register_blueprint(news)
 app.register_blueprint(newTopic)
+app.register_blueprint(inPost)
 
 
 @login_manager.user_loader
