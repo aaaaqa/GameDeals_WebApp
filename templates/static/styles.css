@@ -790,6 +790,7 @@ ul.navbar > li:not(:last-child)::after {
 }
 .category-titulo a {
   color: #ffffff;
+  font-family: 'Inter';
   text-decoration: underline;
   font-size: 20px;
   font-style: normal;
@@ -804,11 +805,13 @@ ul.navbar > li:not(:last-child)::after {
   position: absolute;
   align-self: flex-start;
   font-style: normal;
+  font-family: 'Inter';
   text-align: right;
   font-weight: 300;
 }
 .category-description {
   color: #ffffff;
+  font-family: 'Inter';
 }
 .category-last-post {
   width: 25%;
@@ -824,6 +827,7 @@ ul.navbar > li:not(:last-child)::after {
   color: #ffffff;
   align-self: flex-end;
   font-style: normal;
+  font-family: 'Inter';
   text-align: right;
   font-weight: 700;
   margin-bottom: 8px;
@@ -833,6 +837,7 @@ ul.navbar > li:not(:last-child)::after {
   width: 100%;
   align-self: flex-end;
   font-style: normal;
+  font-family: 'Inter';
   text-align: right;
   font-weight: 400;
 }
@@ -937,6 +942,7 @@ ul.navbar > li:not(:last-child)::after {
   font-size: 30px;
   font-style: normal;
   font-weight: 500;
+  font-family: 'Inter';
   margin-bottom: 8px;
   text-decoration: underline;
 }
@@ -945,6 +951,7 @@ ul.navbar > li:not(:last-child)::after {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
+  font-family: 'Inter';
   margin-bottom: 8px;
 }
 .post-post-date {
@@ -952,6 +959,7 @@ ul.navbar > li:not(:last-child)::after {
   font-size: 18px;
   font-style: normal;
   font-weight: 300;
+  font-family: 'Inter';
 }
 .post-post-stats {
   width: 25%;
@@ -971,6 +979,7 @@ ul.navbar > li:not(:last-child)::after {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
+  font-family: 'Inter';
   margin-bottom: 8px;
 }
 .post-post-views {
@@ -978,6 +987,7 @@ ul.navbar > li:not(:last-child)::after {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
+  font-family: 'Inter';
   margin-bottom: 8px;
 }
 .post-post-by {
@@ -985,6 +995,7 @@ ul.navbar > li:not(:last-child)::after {
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
+  font-family: 'Inter';
   margin-bottom: 0px;
 }
 
@@ -1024,12 +1035,14 @@ ul.navbar > li:not(:last-child)::after {
   font-size: 35px;
   font-style: normal;
   font-weight: 700;
+  font-family: 'Inter';
   margin-bottom: 8px;
   text-decoration: underline;
 }
 .home-topics {
   color: rgb(255, 255, 255);
   font-size: 20px;
+  font-family: 'Inter';
 }
 .home-post-container {
   flex: 0 0 auto;
@@ -1040,4 +1053,58 @@ ul.navbar > li:not(:last-child)::after {
   padding-right: 3%;
   flex-direction: column;
   justify-content: center;
+}
+
+/* New Post */
+
+.newPost-home-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #020E27;
+}
+.home-new-post-container {
+  width: 100%;
+  height: 547px;
+  display: flex;
+  margin-top: 5%;
+  align-items: flex-start;
+  padding-left: 3%;
+  padding-right: 3%;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.home-title {
+  color: rgb(255, 255, 255);
+  font-family: 'Inter';
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+.home-title-input {
+  font-family: 'Inter';
+  margin-bottom: 32px;
+}
+.home-body {
+  color: rgb(255, 255, 255);
+  font-family: 'Inter';
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+.home-body-text-area {
+  width: 100%;
+  height: 307px;
+  margin-bottom: 32px;
+  font-family: 'Inter';
+}
+.home-publish {
+  color: #ffffff;
+  font-family: 'Inter';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  text-decoration: underline;
 }
