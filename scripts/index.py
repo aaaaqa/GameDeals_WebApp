@@ -1,7 +1,7 @@
-from flask import Blueprint, redirect
+from flask import Blueprint, render_template
 
 index = Blueprint('index', __name__, template_folder='../templates')
 
-@index.route('/', methods=['GET'])
+@index.route('/index', methods=['GET'])
 def show():
-    return redirect('login')
+    return render_template('index.html')

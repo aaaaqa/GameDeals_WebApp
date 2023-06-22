@@ -47,7 +47,6 @@
 
 <body>
     <div class="home">
-    Welcome {{ current_user.username }}!
     <header>
         <a href="#" class=logo><img src="{{ url_for('static',filename='logo3.png') }}"/></a>
 
@@ -64,22 +63,12 @@
 
     <div id="cards">
         <div class="images">
+            {% for image in image_list %}
             <div>
-                <a href="#"><img src="{{ url_for('static', filename='card1.png') }}"/></a>
+                <a href="#"><img src="data:;base64,{{image}}"/></a>
             </div>
-            <div>
-                <a href="#"><img src="{{ url_for('static', filename='card1.png') }}"/></a>
-            </div>
-            <div>
-                <a href="#"><img src="{{ url_for('static', filename='card1.png') }}"/></a>
-            </div>
+            {% endfor %}
         </div>
-        <!--<div class='pagination'>
-            <button></button>
-            <button></button>
-            <button></button>
-            <button></button>
-        </div>-->
     </div>
     <div id="bottom-main">
         <div id="hotsales">
@@ -87,42 +76,14 @@
                 <span>HOT SALES</span>
             </div>
             <div class="s2">
+                {% for (image, discount) in list %}
                 <div class="s3">
-                    <a href="#"><img src="{{ url_for('static', filename='hotsales1.png') }}"/></a>
+                    <a href="#"><img src="data:;base64,{{image}}"/></a>
                     <div id="discount">
-                        <span>15%</span>
+                            <span>{{discount}}%</span>
                     </div>
                 </div>
-                <div class="s4">
-                    <a href="#"><img src="{{ url_for('static', filename='hotsales1.png') }}"/></a>
-                    <div id="discount">
-                        <span>15%</span>
-                    </div>
-                </div>
-                <div class="s5">
-                    <a href="#"><img src="{{ url_for('static', filename='hotsales1.png') }}"/></a>
-                    <div id="discount">
-                        <span>15%</span>
-                    </div>
-                </div>
-                <div class="s6">
-                    <a href="#"><img src="{{ url_for('static', filename='hotsales1.png') }}"/></a>
-                    <div id="discount">
-                        <span>15%</span>
-                    </div>
-                </div>
-                <div class="s7">
-                    <a href="#"><img src="{{ url_for('static', filename='hotsales1.png') }}"/></a>
-                    <div id="discount">
-                        <span>15%</span>
-                    </div>
-                </div>
-                <div class="s8">
-                    <a href="#"><img src="{{ url_for('static', filename='hotsales1.png') }}"/></a>
-                    <div id="discount">
-                        <span>15%</span>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
         <div id="indies">

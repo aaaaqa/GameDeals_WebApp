@@ -41,7 +41,7 @@
         <ul class="navbar">
             <li><a href="/home" class="active">Página Principal</a></li>
             <li><a href="/catalog">Catálogo</a></li>
-            <li><a href="#">Comunidad</a></li>
+            <li><a href="/community">Comunidad</a></li>
         </ul>
 
         <div class="main">
@@ -49,6 +49,22 @@
         </div>
     </header>
     <h1>Review</h1>
+    <form method="POST" action="/review" enctype="multipart/form-data">
+        <!-- File Upload-->
+        <div class="form-group">
+            <label for="inputFile">File input</label>
+            <input class="form-control-file" type="file" name="inputFile">
+        </div>
+
+        <!-- Text -->
+        <div class="form-group">
+            <label for="text">Write Text</label>
+            <textarea class="form-control" name="text" id="text" rows="5" placeholder="Add a Description"></textarea>
+        </div>
+
+        <!-- Submit -->        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
     <form action="database.db">
         <label for="juegos">Seleccione el juego: </label>
         <select name="juegos" id="juegos">
