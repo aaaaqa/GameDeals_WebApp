@@ -43,3 +43,8 @@ class GamestoreGame(db.Model):
     idGameStore = db.Column(db.Integer)
     priceGame = db.Column(Float)
     discountGame = db.Column(Float)
+
+class IndieGame(db.Model):
+    idIndieGame = db.Column(db.Integer, primary_key=True)
+    imageIndie = db.Column(db.LargeBinary, nullable=False)
+    rendered_data = db.Column(db.Text, nullable=False)

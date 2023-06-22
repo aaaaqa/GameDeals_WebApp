@@ -4,7 +4,7 @@ from base64 import b64encode
 from itertools import islice
 from sqlalchemy.sql import text
 
-from models import db, Users, News, Game, GamestoreGame
+from models import db, Users, News, Game, GamestoreGame, IndieGame
 
 home = Blueprint('home', __name__, template_folder='../templates')
 login_manager = LoginManager()
@@ -37,4 +37,12 @@ def show():
 
     _list = zip(hotsales_list, discount_list)
 
-    return render_template('home.html', image_list=image_list, list=_list)
+    new_indies = db.session.query(IndieGame).all()
+    indie_list = []
+    
+    for img in new_indies:
+        image = b64encode(img.imageIndie).decode('ascii')
+        indie_list.append(image)
+    indie_list = list(islice(reversed(indie_list), 0, 1))
+
+    return render_template('home.html', image_list=image_list, list=_list, indie_list=indie_list)
