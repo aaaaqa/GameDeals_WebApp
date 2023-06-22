@@ -108,6 +108,10 @@
 
             console.log(d4.style.display);
         }
+
+        function logOut(){
+            window.location.href='/logout';
+        }
     </script>
 
     <style>
@@ -122,6 +126,9 @@
             text-decoration: none;
             list-style: none;
             min-height: 100vh;
+        }
+        #l5:hover {
+            color: red;
         }
     </style>
 
@@ -156,6 +163,7 @@
                         <li onclick="openGameList()" id="l2">Lista de Juegos</li>
                         <li onclick="openConections()" id="l3">Conexiones</li>
                         <li onclick="openSettings()" id="l4">Ajuste de cuenta</li>
+                        <li onclick="logOut()" id="l5">Cerrar Sesión</li>
                     <ul>
                 </div>
             </div>
