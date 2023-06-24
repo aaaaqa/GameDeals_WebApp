@@ -159,10 +159,10 @@
                 </div>
                 <div class="p4">
                     <ul>
-                        <li onclick="openRecomendaciones()" id="l1" style="font-weight: bold;">Recomendaciones</li>
+                        <li onclick="openRecomendaciones()" id="l1">Recomendaciones</li>
                         <li onclick="openGameList()" id="l2">Lista de Juegos</li>
                         <li onclick="openConections()" id="l3">Conexiones</li>
-                        <li onclick="openSettings()" id="l4">Ajuste de cuenta</li>
+                        <li onclick="openSettings()" id="l4" style="font-weight: bold;">Ajuste de cuenta</li>
                         <li onclick="logOut()" id="l5">Cerrar Sesión</li>
                     <ul>
                 </div>
@@ -298,6 +298,37 @@
                     </div>
                 </div>
                 <div id="d3">
+                    <div id="d3_1">
+                        <div class="title">
+                            <h1>Tus plataformas conectadas</h1>
+                        </div>
+                        <div class="d3_connections">
+                            <div class="d3_images">
+                                <a href="#"><img src="{{ url_for('static',filename='connections1.png') }}"/></a>
+                                <a href="#"><img src="{{ url_for('static',filename='connections2.png') }}"/></a>
+                                <a href="#"><img src="{{ url_for('static',filename='connections3.png') }}"/></a>
+                                <a href="#"><img src="{{ url_for('static',filename='connections4.png') }}"/></a>
+                            </div>
+                            <div class="d3_add">
+                                <a class="d3_anchor">Añadir nueva conexión...</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="d3_2">
+                        <div class="title">
+                            <h1>Ajustes de conexión</h1>
+                        </div>
+                        <div class="settings">
+                            <ul>
+                                <li>Mostar en perfil<input type="checkbox" id="cbox1" value="first_checkbox"></li>
+                                <li>Mostrar en status de juego<input type="checkbox" id="cbox1" value="first_checkbox"></li>
+                                <li>Mostrar detalles en perfil<input type="checkbox" id="cbox1" value="first_checkbox"></li>
+                                <li>Autocompletar lista de juegos</li>
+                                <li style="text-decoration: underline;">Vincular reseñas...</li>
+                                <li style="text-decoration: underline;">Eliminar conexión...</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
