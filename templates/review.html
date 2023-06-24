@@ -1,9 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/61ebb60581.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet">
+    <script defer href= "{{ url_for('static',filename='index.js') }}"></script>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <title>Game Deals</title>
 
     <script>
         function openMenu(){
@@ -34,12 +44,15 @@
     </style>
 
 </head>
+
 <body>
+  <div class="home">
+    Welcome {{ current_user.username }}!
     <header>
         <a href="#" class=logo><img src="{{ url_for('static',filename='logo3.png') }}"/></a>
 
         <ul class="navbar">
-            <li><a href="/home" class="active">Página Principal</a></li>
+            <li><a href="/home">Página Principal</a></li>
             <li><a href="/catalog">Catálogo</a></li>
             <li><a href="/community">Comunidad</a></li>
         </ul>
@@ -48,35 +61,47 @@
             <a href="/profile" class="user" onclick="openMenu()"><i class="ri-user-fill"></i></a>
         </div>
     </header>
-    <h1>Review</h1>
-    <form method="POST" action="/review" enctype="multipart/form-data">
-        <!-- File Upload-->
-        <div class="form-group">
-            <label for="inputFile">File input</label>
-            <input class="form-control-file" type="file" name="inputFile">
-        </div>
 
-        <!-- Text -->
-        <div class="form-group">
-            <label for="text">Write Text</label>
-            <textarea class="form-control" name="text" id="text" rows="5" placeholder="Add a Description"></textarea>
-        </div>
+    <div class="community-container">
+      <div class="review">
+        <header>
+            <a href="#" class=logo><img src="{{ url_for('static',filename='logo3.png') }}"/></a>
 
-        <!-- Submit -->        
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    <form action="database.db">
-        <label for="juegos">Seleccione el juego: </label>
-        <select name="juegos" id="juegos">
-            <option value="Destiny">Destiny 2</option>
-            <option value="Battlefield 3">Battlefield 3</option>
-            <option value="Zelda">The Legend of Zelda</option>
-        </select>
-    </form>
-    <div id="reseñasa">
-        <label for="">Coloque su reseña: </label>
-        <textarea name="reseña" id="reseña" cols="4" rows="50"></textarea> <br> <br>
+            <ul class="navbar">
+                <li><a href="/home" class="active">Página Principal</a></li>
+                <li><a href="/catalog">Catálogo</a></li>
+                <li><a href="/community">Comunidad</a></li>
+                <li><a href="#" class="active">Reviews</a></li>
+            </ul>
+
+            <div class="main">
+                <a href="/profile" class="user" onclick="openMenu()"><i class="ri-user-fill"></i></a>
+            </div>
+        </header>
+        <h1>Reviews</h1>
+        <form action="database.db">
+            <label id="label-r" for="review-select">Seleccione un juego:</label>
+
+            <select name="s-review" id="review-select">
+                <option value="">--Juegos--</option>
+                <option value="Destiny">Destiny</option>
+                <option value="FFXVI">FF XVI</option>
+                <option value="Zelda">Zelda BOTW</option>
+                <option value="Uncharted">Uncharted</option>
+                <option value="Payday2">Payday2</option>
+                <option value="Valorant">Valorant</option>
+            </select>
+            
+        </form>
+        
+            <h1 id="order">Coloque su reseña</h1>
+            <textarea>Coloque su reseña:</textarea>
+        
+        <input type="submit" id="botaan" value="Subir" id="botaan">
     </div>
-    <input type="submit" value="submit">
+  </div>
+
+    <a href="/logout" class="logout">Cerrar Sesión</a>
 </body>
+
 </html>
