@@ -2,6 +2,7 @@ html, body {
   margin:0px;  
   height:100vh;
   overflow: hidden;
+  font-family: 'Inter';
 } 
 
 .login {
@@ -15,7 +16,6 @@ h1 {
     margin: 3% auto 3% auto;
     text-align: center;
     font-size: 64px;
-    font-family: 'Inter';
     font-weight: bold;
 }
 .child-login p {
@@ -66,7 +66,6 @@ h1 {
   color: #6B6B6B;
   padding: 12px;
   margin: 15px auto 5px auto;
-  font-family: 'Inter';
   font-weight: bold;
   box-shadow: 4px 4px 5px -5px #000000;
   border: 0;
@@ -114,7 +113,6 @@ h1 {
   color: #6B6B6B;
   padding: 12px;
   margin: 15px auto 5px auto;
-  font-family: 'Inter';
   font-weight: bold;
   box-shadow: 4px 4px 5px -5px #000000;
   border: 0;
@@ -150,6 +148,12 @@ input[type=checkbox] {
 }
 
 .home {
+  background-color: #020E27;
+  width: 100vw;
+  height: 100vh;
+}
+
+.review{
   background-color: #020E27;
   width: 100vw;
   height: 100vh;
@@ -212,7 +216,6 @@ ul.navbar > li:not(:last-child)::after {
   padding: 5px  0;
   margin: 0 30px;
   transition: all 0.50s ease;
-  font-family: 'Inter';
 }
 
 .navbar a.active {
@@ -262,7 +265,7 @@ ul.navbar > li:not(:last-child)::after {
   text-align: center;
   width: 100%;
   height: 405px;
-  top: 5%;
+  top: 8%;
 }
 
 
@@ -340,7 +343,6 @@ ul.navbar > li:not(:last-child)::after {
 
 #hotsales .s1 {
   font-size: 48px;
-  font-family: 'Inter';
   font-weight: bold;
   color: white;
 }
@@ -361,12 +363,14 @@ ul.navbar > li:not(:last-child)::after {
 }
 
 #hotsales .s2 div a img {
-  padding: 10px;
-  width: 85%;
-  height: auto;
-  z-index: 1;
   position: relative;
   display: block;
+  padding: 10px;
+  width: 247px;
+  height: 139px;
+  max-width: 247px;
+  max-height: 139px;
+  z-index: 1;
   margin: auto;
 }
 
@@ -388,7 +392,6 @@ ul.navbar > li:not(:last-child)::after {
   display: table-cell;
   color: black;
   vertical-align: middle;
-  font-family: 'Inter';
   font-size: 16px;
   font-weight: bold;
 }
@@ -409,7 +412,6 @@ ul.navbar > li:not(:last-child)::after {
 
 #indies .i1 {
   color: white;
-  font-family: 'Inter';
   font-size: 48px;
   font-weight: bold;
 }
@@ -425,8 +427,10 @@ ul.navbar > li:not(:last-child)::after {
 }
 
 #indies .i2 a img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 400px;
+  height: 320px;
+  max-width: 400px;
+  max-height: 320px;
   display: block;
 }
 
@@ -489,7 +493,6 @@ ul.navbar > li:not(:last-child)::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Inter';
   font-size: 24px;
   height: fit-content;
 }
@@ -527,7 +530,7 @@ ul.navbar > li:not(:last-child)::after {
 
 #d1 {
   position: relative;
-  display: grid;
+  display: none;
   grid-template-rows: 50% 50%;
   grid-template-areas: 
     "d1_1"
@@ -548,7 +551,6 @@ ul.navbar > li:not(:last-child)::after {
 }
 
 #d1 div h1 {
-  font-family: 'Inter';
   font-size: 48px;
   text-align: left;
   font-weight: bold;
@@ -652,7 +654,6 @@ ul.navbar > li:not(:last-child)::after {
 }
 
 #d2 div h1 {
-  font-family: 'Inter';
   font-size: 48px;
   text-align: left;
   font-weight: bold;
@@ -700,9 +701,130 @@ ul.navbar > li:not(:last-child)::after {
   margin-top: 10px;
 }
 
-#d4 {
+#d3  {
   position: relative;
   display: none;
+  height: 100%;
+  width: 100%;
+}
+
+#d3 div {
+  margin-top: 30px;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  height: fit-content;
+  text-align: left;
+  width: 95%;
+}
+
+#d3_1 .title h1 {
+  font-size: 48px;
+  text-align: left;
+  font-weight: bold;
+  width: 100%;
+  top: 0;
+  margin: 0 auto!important;
+  padding-left: 2.5%;
+  padding-bottom: 10px;
+}
+
+#d3 div .d3_connections {
+  background-color: #1C2C4E;
+  width: 90%;
+  display: flex;
+  margin-left: 40px;
+  border-radius: 5px;
+  height: fit-content;
+  vertical-align: middle;
+}
+
+#d3 .d3_connections .d3_images {
+  display: grid!important;
+  margin: 15px auto 15px 0;
+  width: 30%;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
+.d3_images a img {
+  display: block;
+  position: relative;
+  margin: auto;
+  width: 70px;
+  height: 70px;
+  max-width: 70px;
+  max-height: 70px;
+}
+
+.d3_images a {
+  border-right: 2px solid white;
+}
+
+#d3 .d3_connections .d3_add {
+  position: absolute;
+  width: auto;
+  color: white;
+  margin: 38px 15px 15px 32%;
+}
+
+#d3 .d3_connections .d3_add .d3_anchor {
+  color: white;
+  text-decoration: underline;
+}
+
+#d3 #d3_2 {
+  margin-top: 0px;
+}
+
+#d3_2 .title h1 {
+  font-size: 24px;
+  text-align: left;
+  font-weight: bold;
+  width: 100%;
+  top: 0;
+  margin: 0 auto!important;
+  padding-left: 2.5%;
+  padding-bottom: 10px;
+}
+
+#d3_2 .settings {
+  background-color: #1C2C4E;
+  width: 90%;
+  display: flex;
+  margin-left: 40px;
+  border-radius: 5px;
+  height: fit-content;
+  vertical-align: middle;
+  align-items: center;
+  justify-content: center;
+}
+
+#d3_2 .settings ul {
+  width: 100%;
+  padding: 15px;
+  font-size: 24px;
+}
+
+#d3_2 .settings ul li {
+  padding: 20px;
+}
+
+#d3_2 .settings ul li input {
+  margin: 0;
+  float: right;
+  width: 22px;
+  height: 22px;
+  outline: 1px solid linear-gradient(180deg, #76F2AE 0%, #0ECCF4 100%);;
+}
+
+#d3_2 .settings ul li:not(:last-child) {
+  border-bottom: 1px solid white;
+}
+
+#d4 {
+  position: relative;
+  display: grid;
   height: 100%;
   width: 100%;
 }
@@ -732,7 +854,6 @@ ul.navbar > li:not(:last-child)::after {
 
   font-size: 36px;
   text-align: left;
-  font-family: 'Inter';
   font-weight: 100;
 }
 
@@ -859,7 +980,6 @@ ul.navbar > li:not(:last-child)::after {
 .order {
   display: flex;
   position: relative;
-  font-family: 'Inter';
   font-size: 20px;
   text-align: left;
   font-weight: bold;
@@ -892,7 +1012,6 @@ ul.navbar > li:not(:last-child)::after {
 }
 
 .catalog div .price {
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -903,4 +1022,53 @@ ul.navbar > li:not(:last-child)::after {
 
 .crossed {
   text-decoration-line: line-through;
+}
+/*
+label {
+  font-family: sans-serif;
+  font-size: 1rem;
+  padding-right: 10px;
+}
+*/
+#label-r{
+  font-family: 'Inter';
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  padding:25px;
+}
+#review-select {
+  font-size: 0.9rem;
+  padding: 4px 8px;
+}
+
+textarea {
+  font-family: 'Inter';
+  width: 800px;
+  height: 200px;
+  padding: 12px 40px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #253C73;
+  font-size: 16px;
+  resize: none;
+  color:white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#botaan{
+  font-family: 'Inter';
+  background-color: #253C73;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
