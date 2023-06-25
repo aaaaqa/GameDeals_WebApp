@@ -1,6 +1,7 @@
 import sqlalchemy
 from flask_login import LoginManager
 from flask import Flask,render_template, request , redirect,url_for
+from werkzeug.routing import Rule
 
 import sys
 
@@ -19,8 +20,15 @@ from catalog import catalog
 from news import news
 from newTopic import newTopic
 from inPost import inPost
+from review import review
 
 app = Flask(__name__, static_folder='./templates/static')
+
+@app.endpoint("catch_all")
+def _404(_404):
+    return render_template('login.html')
+
+app.url_map.add(Rule("/", defaults={"_404": ""}, endpoint="catch_all"))
 
 wishlist = []
 
@@ -67,6 +75,7 @@ app.register_blueprint(catalog)
 app.register_blueprint(news)
 app.register_blueprint(newTopic)
 app.register_blueprint(inPost)
+app.register_blueprint(review)
 
 
 @login_manager.user_loader
