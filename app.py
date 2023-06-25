@@ -5,6 +5,7 @@ from flask_login import LoginManager
 from flask import Flask,render_template, request , redirect, url_for, flash
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
+from werkzeug.routing import Rule
 
 import sys
 
@@ -27,6 +28,13 @@ app = Flask(__name__, static_folder='./templates/static')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///../scripts/database.db'
 app.config['SECRET_KEY'] = 'secret_key'
 
+@app.endpoint("catch_all")
+def _404(_404):
+    return render_template('login.html')
+
+app.url_map.add(Rule("/", defaults={"_404": ""}, endpoint="catch_all"))
+
+
 @app.before_first_request
 def create_tables():
     db.create_all()
@@ -43,7 +51,7 @@ def list_delete(item):
     global wishlist
     wishlist.remove(item)
 
-@app.route("/",methods = ['GET','POST'])
+@app.route("/wishlist",methods = ['GET','POST'])
 
 def main_wishlist():
     if request.method == 'POST':
