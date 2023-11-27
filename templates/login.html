@@ -11,20 +11,55 @@
 
 <body>
 <div class="login">
-    <div class="parent-login">
+    <div class="parentLogin">
         <img src="{{url_for('static', filename='logo3.png')}}" alt='logo'>
-        <h1>BIENVENIDO</h1>
-        <div class="child-login">
-        <form method="POST" action="/login" class="input">
-            <input type="text" name="username" class="form-control" placeholder="Usuario">
-            <input type="password" name="password" class="form-control" placeholder="Contraseña">
-            <button type="submit" class="button form-control">Ingresar</button>
-            <p>¿Olvidaste tu contraseña?</p>
-            <button class="form-control"><a class="button" href="/register">Crear una cuenta nueva</a></button>
+        <h1>WELCOME</h1>
+        <div class="childLogin">
+        <form method="POST" action="/login" class="loginInput">
+            <input id="username" type="text" name="username" class="formControl" placeholder="Username">
+            <input id="password" type="password" name="password" class="formControl" placeholder="Password">
+            <button id="logInButton" type="submit" class="button formControl">Log In</button>
+            <a href="/register">Forgot password?</a>
+            <div class="childLoginLine"></div>
+            <button id="dialogOpenButton" type="button" class="button formControl">Create new account</button>
         </form>
         <div>
     </div>
+    <dialog id="register" class="register">
+        <div class="parentRegister">
+            <div class="registerHeader">
+                <h2>Sign Up</h2>
+                <button id="dialogCloseButton">X</button>
+            </div>
+            <div class="parentRegisterLine"></div>
+            <div class="registerForm">
+                <form method="POST" action="/register">
+                    <input id="registerUsername" type="text" name="username" class="formControl" placeholder="User">
+                    <input id="registerEmail" type="text" name="email" class="formControl" placeholder="Email">
+                    <input id="registerPassword" type="password" name="password" class="formControl" placeholder="New password">
+                    <input id="registerPassword2" type="password" name="confirm-password" class="formControl" placeholder="Confirm password">
+                    <div class="registerTerms">
+                        <input type="checkbox" name="terms">
+                        <label>By clicking Sign Up, you agree to our </label><a href="#">Terms.</a>
+                    </div>
+                    <button id="registerSignUp" type="submit" class="button">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
 </div>
 </body>
+
+<<script>
+    const dialog = document.getElementById("register");
+    const openButton = document.getElementById("dialogOpenButton");
+    const closeButton = document.getElementById("dialogCloseButton");
+    openButton.addEventListener("click", () => {
+        dialog.showModal();
+    });
+    closeButton.addEventListener("click", () => {
+        dialog.close();
+    });
+</script>
 
 </html>
