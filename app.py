@@ -10,8 +10,7 @@ sys.path.insert(0, './scripts/')
 from models import db, Users
 
 from index import index
-from login import login
-from register import register
+from login import login, register
 from logout import logout
 from home import home
 from community import community
