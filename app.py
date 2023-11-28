@@ -11,6 +11,7 @@ from models import db, Users
 
 from index import index
 from login import login
+from register import register
 from logout import logout
 from home import home
 from community import community
@@ -20,6 +21,7 @@ from news import news
 from newTopic import newTopic
 from inPost import inPost
 from review import review
+from terms import terms
 
 app = Flask(__name__, static_folder='./templates/static')
 
@@ -65,6 +67,7 @@ app.app_context().push()
 
 app.register_blueprint(index)
 app.register_blueprint(login)
+app.register_blueprint(register)
 app.register_blueprint(logout)
 app.register_blueprint(home)
 app.register_blueprint(profile)
@@ -74,6 +77,7 @@ app.register_blueprint(news)
 app.register_blueprint(newTopic)
 app.register_blueprint(inPost)
 app.register_blueprint(review)
+app.register_blueprint(terms)
 
 
 @login_manager.user_loader

@@ -1,4 +1,4 @@
-from flask import Blueprint, url_for, render_template, redirect, request
+from flask import Blueprint, url_for, render_template, redirect, request, flash
 from flask_login import LoginManager
 from werkzeug.security import generate_password_hash
 
@@ -32,10 +32,16 @@ def show():
                     db.session.add(new_user)
                     db.session.commit()
                 except sqlalchemy.exc.IntegrityError:
-                    return redirect(url_for('register.show') + '?error=user-or-email-exists')
+                    flash('User or Email already exists.', 'error')
+                    #return redirect(url_for('register.show') + '?error=user-or-email-exists')
 
-                return redirect(url_for('login.show') + '?success=account-created')
+                return redirect(url_for('home.show') + '?success=account-created')
+            else:
+                flash('Passwords must be same.', 'error')
+                #return redirect(url_for('register.show') + '?error=password-not-match')
         else:
-            return redirect(url_for('register.show') + '?error=missing-fields')
+            flash('Missing fields.', 'error')
+            #return redirect(url_for('register.show') + '?error=missing-fields')
     else:
-        return render_template('register.html')
+        return
+        #return render_template('login.html')

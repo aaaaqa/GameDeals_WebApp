@@ -71,6 +71,20 @@ height: auto;
   height: fit-content;
 }
 
+.alert {
+  position: relative;
+  width: 10%;
+  background: linear-gradient(180deg, #76F2AE 0%, #0ECCF4 100%);
+  border-radius: 5%;
+  margin: 5em auto 0;
+  z-index: 2;
+  padding: 0.5em 0;
+}
+
+.alertClose {
+  font-size: 12px;
+}
+
 .childLogin form .button {
   background-color: #020E27;
   color: white;
@@ -240,13 +254,57 @@ height: auto;
 
 /*Register*/
 
+/*Terms*/
+
+.terms {
+  color: #ffffff;
+  font-size: 16px;
+  padding-left: 2em;
+}
+
+.termsButton {
+  background: linear-gradient(180deg, #76F2AE 0%, #0ECCF4 100%);
+  position: absolute;
+  color: #000000;
+  border-radius: 10px;
+  height: 45px;
+  margin: 0.5em auto 0.5em;
+  font-size: 1.5em;
+}
+
+.termsButton a {
+  text-decoration: none;
+}
+
+.termsButton a:hover {
+  color: #000000;
+  font-weight: bold;
+}
+
+.termsTitle {
+  text-align: center;
+}
+
+.termsBody {
+  width: fit-content;
+  position: relative;
+  margin: 0 auto;
+  border: 1px solid #ffffff;
+}
+
+.termsBody h3, .termsBody h2, .termsBody p {
+  padding: 0em 1em 0em 1em;
+}
+
+.termsBody p br {
+  display: block;
+  content: "";
+  margin-top: 1em;
+}
 
 
 
-
-
-
-
+/*Terms*/
 
 
 
