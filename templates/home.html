@@ -13,92 +13,82 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-    <title>Game Deals</title>
+    <title>GameDeals - Home</title>
 
     <script>
-        function openMenu(){
-            elem = document.getElementById("menu");
-
-            if(elem.style.display === "block"){
-                elem.style.display = "none";
-            }
-            else {
-                elem.style.display = "block";
-            }
+        window.onload = function (){
+            let document_title = document.getElementsByTagName('title')[0];
+            var id = document_title.innerHTML.split(" ")[2]
+            var element = document.getElementById(id);
+            element.style.fontWeight = "bold";
+            element.style.color = "#ffffff";
         }
     </script>
-
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            text-decoration: none;
-            list-style: none;  
-        }
-        body {
-            text-decoration: none;
-            list-style: none;
-            min-height: 100vh;
-        }
-    </style>
-
 </head>
 
-<body>
-    <div class="home">
-    <header>
-        <a href="#" class=logo><img src="{{ url_for('static',filename='logo3.png') }}"/></a>
-
-        <ul class="navbar">
-            <li><a href="/home" class="active">Página Principal</a></li>
-            <li><a href="/catalog">Catálogo</a></li>
-            <li><a href="/community">Comunidad</a></li>
-            <li><a href="/review">Reviews</a></li>
-        </ul>
-
-        <div class="main">
-            <a href="/profile" class="user" onclick="openMenu()"><i class="ri-user-fill"></i></a>
+<body class="home">
+    <header class="home-header">
+        <a href="/home" class=logo><img src="{{ url_for('static',filename='logo.webp') }}"/></a>
+        <div class="navbar">
+            <ul class="navbar-list">
+                <li><a id="Home" href="/home">Home</a></li>
+                <li><a href="/catalog">List</a></li>
+                <li><a href="/community">Community</a></li>
+                <li><a href="/review">Reviews</a></li>
+            </ul>
+        </div>
+        <div class="user">
+            <a href="/profile" class="user-icon"><i class="ri-user-fill"></i></a>
         </div>
     </header>
-
-    <div id="cards">
-        <div class="images">
-            {% for image in image_list %}
-            <div>
-                <a href="#"><img src="data:;base64,{{image}}"/></a>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-    <div id="bottom-main">
-        <div id="hotsales">
-            <div class="s1">
-                <span>HOT SALES</span>
-            </div>
-            <div class="s2">
-                {% for (image, discount) in list %}
-                <div class="s3">
+    <main>
+        <div class="home-content">
+            <div class="cards">
+                {% for image in image_list %}
+                <div class="card-images">
                     <a href="#"><img src="data:;base64,{{image}}"/></a>
-                    <div id="discount">
-                            <span>{{discount}}%</span>
-                    </div>
                 </div>
                 {% endfor %}
             </div>
-        </div>
-        <div id="indies">
-            <div class="i1">
-                <span>NEW INDIES</span>
-            </div>
-            {% for image in indie_list %}
-                <div class="i2">
-                    <a href="#"><img src="data:;base64,{{image}}"/></a>
+            <div class="bottom-home">
+                <div class="hot-sales">
+                    <div class="hot-sales-title">
+                        <div>HOT SALES</div>
+                    </div>
+                    <div class="hot-sales-wrapper">
+                        {% for (title, discount, image, total) in list %}
+                            <a class="hot-sale" href="#">
+                                <div class="hot-sale-content">
+                                    <img class="hot-sale-img" src="{{image}}"/>
+                                    <div class="hot-sale-title">
+                                        <div>{{title}}</div>
+                                    </div>
+                                    <div class="hot-sale-discount">
+                                        <div>{{discount}}</div>
+                                    </div>
+                                    <div class="hot-sale-total">
+                                        <div>{{total}}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
                 </div>
-            {% endfor %}
+                <div class="indies">
+                    <div class="indies-title">
+                        <span>NEW INDIES</span>
+                    </div>
+                    {% for image in indie_list %}
+                        <div class="indie-content">
+                            <a href="#">
+                                <img src="data:;base64,{{image}}"/>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+    </main>
 </body>
 
 </html>

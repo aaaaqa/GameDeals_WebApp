@@ -3,6 +3,10 @@ from flask_login import LoginManager, login_required, current_user
 from base64 import b64encode
 from itertools import islice
 from sqlalchemy.sql import text
+import bs4 as bs
+import string
+import urllib.request
+
 
 from models import db, Users, News, Game, GamestoreGame, IndieGame
 
@@ -13,36 +17,20 @@ login_manager.init_app(home)
 @home.route('/home', methods=['GET'])
 @login_required
 def show():
-    images = db.session.query(News).all()
-    image_list = []
-    for img in images:
-        image = b64encode(img.imageNews).decode('ascii')
-        image_list.append(image)
-    image_list = list(islice(reversed(image_list), 0, 3))
+    news_images = db.session.query(News).all()
+    image_list = islice([b64encode(img.imageNews).decode('ascii') for img in reversed(news_images)], 0, 3)
 
-    hotsales = db.session.query(Game).all()
-    hotsales_list = []
-    
-    for img in hotsales:
-        image = b64encode(img.bannerGame).decode('ascii')
-        hotsales_list.append(image)
-    hotsales_list = list(islice(reversed(hotsales_list), 0, 6))
+    indies_images = db.session.query(IndieGame).first()
+    indie_list = [b64encode(indies_images.imageIndie).decode('ascii')]
 
-    session = db.session()
-    discount = session.execute(text('SELECT discountGame FROM Gamestore_Game ORDER BY idGamestoreGame desc LIMIT 6;')).cursor
-    discount_list = []
+    my_url = urllib.request.urlopen('https://store.steampowered.com/search/?sort_by=Released_DESC&os=win&supportedlang=english&specials=1&ndl=1').read()
 
-    for d in discount:
-        discount_list.append(d[0])
+    soup = bs.BeautifulSoup(my_url, 'lxml')
+    title_tag = [item.text for item in soup.select('span.title')][:4]
+    img_tag = [item['srcset'].split('x, ')[-1].split(' 2x')[0] for item in soup.select('div.col.search_capsule img[srcset]')][:4]
+    discount_tag = [item.text for item in soup.select('div.discount_pct')][:4]
+    total_tag = [item.text for item in soup.select('div.discount_final_price')][:4]
+    parsed_imgs = zip(title_tag, discount_tag, img_tag, total_tag)
 
-    _list = zip(hotsales_list, discount_list)
-
-    new_indies = db.session.query(IndieGame).all()
-    indie_list = []
-    
-    for img in new_indies:
-        image = b64encode(img.imageIndie).decode('ascii')
-        indie_list.append(image)
-    indie_list = list(islice(reversed(indie_list), 0, 1))
-
-    return render_template('home.html', image_list=image_list, list=_list, indie_list=indie_list)
+    return render_template('home.html', image_list=image_list, list=parsed_imgs, indie_list=indie_list)
+    #return render_template('home.html', image_list=image_list, indie_list=indie_list)
