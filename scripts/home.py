@@ -23,14 +23,26 @@ def show():
     indies_images = db.session.query(IndieGame).first()
     indie_list = [b64encode(indies_images.imageIndie).decode('ascii')]
 
-    my_url = urllib.request.urlopen('https://store.steampowered.com/search/?sort_by=Released_DESC&os=win&supportedlang=english&specials=1&ndl=1').read()
+    steam_url_to_scrape = 'https://store.steampowered.com/search/?sort_by=Released_DESC&os=win&supportedlang=english&specials=1&ndl=1'
 
-    soup = bs.BeautifulSoup(my_url, 'lxml')
-    title_tag = [item.text for item in soup.select('span.title')][:4]
-    img_tag = [item['srcset'].split('x, ')[-1].split(' 2x')[0] for item in soup.select('div.col.search_capsule img[srcset]')][:4]
-    discount_tag = [item.text for item in soup.select('div.discount_pct')][:4]
-    total_tag = [item.text for item in soup.select('div.discount_final_price')][:4]
-    parsed_imgs = zip(title_tag, discount_tag, img_tag, total_tag)
+    parsed_imgs = scrapeHotSales(steam_url_to_scrape)
 
     return render_template('home.html', image_list=image_list, list=parsed_imgs, indie_list=indie_list)
-    #return render_template('home.html', image_list=image_list, indie_list=indie_list)
+
+def scrapeHotSales(url):
+    try:
+        with urllib.request.urlopen(url) as response:
+            my_url = response.read()
+
+        soup = bs.BeautifulSoup(my_url, 'lxml')
+
+        title_tags = [item.text for item in soup.select('span.title')][:4]
+        discount_tags = [item.text for item in soup.select('div.discount_pct')][:4]
+        img_tags = [item['srcset'].split('x, ')[-1].split(' 2x')[0] for item in soup.select('div.col.search_capsule img[srcset]')][:4]
+        total_tags = [item.text for item in soup.select('div.discount_final_price')][:4]
+        link_tags = [link['href'] for link in soup.find_all('a', {'class': ['search_result_row', 'ds_collapse_flag', 'app_impression_tracked']})][:4]
+        
+        return zip(title_tags, discount_tags, img_tags, total_tags, link_tags)
+    except Exception as e:
+        print(f"An error ocurred: {e}")
+        return None

@@ -136,18 +136,18 @@ height: auto;
 
 /*Register*/
 
-.register {
+.register, .profileUpdate {
   background: linear-gradient(180deg, #76F2AE 0%, #0ECCF4 100%);
   border-radius: 5%;
+  width: 40%;
 }
 
-.register::backdrop {
+.register::backdrop, .profileUpdate::backdrop {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
 .parentRegister {
   position: relative;
-  background: linear-gradient(180deg, #76F2AE 0%, #0ECCF4 100%);
 }
 
 .registerHeader {
@@ -189,7 +189,13 @@ height: auto;
 }
 
 .registerForm {
-  display: flex;
+  display: table;
+}
+
+.registerForm form {
+  display: table-cell;
+   text-align: center;
+   vertical-align: middle;
 }
 
 .registerForm input[type=text], .registerForm input[type=password] {
@@ -319,7 +325,7 @@ height: auto;
   align-items: center;
   border-bottom: 1px solid #ffffff;
   line-height: 2px;
-  background-color: #020E27;
+  background-color: #0B1C39;
 }
 
 .logo {
@@ -449,7 +455,7 @@ height: auto;
   height: 20%;
   background-color: #1C2C4E;
   border-radius: 5px;
-  margin: 0.3rem;
+  margin: 0.8rem;
 }
 
 .hot-sale-img {
@@ -564,6 +570,10 @@ height: auto;
     margin: 0 auto;
   }
 
+  .hot-sale-content {
+    margin: 0.3rem;
+  }
+
   .hot-sale-title div {
     overflow: hidden;
     display: -webkit-box;
@@ -585,6 +595,383 @@ height: auto;
   }
 }
 
+@media screen and (max-height: 680px) {
+  .hot-sale-content {
+    margin: 0.3rem;
+  }
+}
+
+/* Home */
+
+/* Profile */
+
+.profile {
+  top: 75.3px;
+  position: relative;
+  height: calc(100vh - 86.3px);
+  display: grid;
+  grid-template-columns: 25% 75%;
+}
+
+.navbar-profile {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+
+  color: white;
+  border-right: 1px solid white;
+}
+
+.profile-icon {
+  width: 90%;
+  position: relative;
+  margin: 0 auto;
+  border-bottom: 1px solid white;
+  text-align: center;
+}
+
+.profile-icon a {
+  display: block;
+  margin: 10% auto 0;
+  color: white;
+  width: 200px;
+  height: 200px;
+  font-size: 10rem;
+  text-decoration: none;
+  list-style: none;
+  border-radius: 50%;
+  border: 1px solid #ffffff;
+}
+
+.profile-icon h1 {
+  font-size: 32px;
+  position: relative;
+  margin: 0.67em auto 0;
+}
+
+.profile-icon span {
+  color: #43b581;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.profile-options {
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0;
+  margin: auto auto;
+  text-align: center;
+  height: 100%;
+}
+
+.options-list li {
+  flex: 25%;
+  margin: 30px 0 30px;
+  cursor: pointer;
+  list-style: none;  
+}
+
+.options-list li:not(:last-child):hover {
+  font-weight: bold;
+}
+
+#log-out:hover {
+  color: #FF4500;
+  font-weight: bold;
+}
+
+.profile-content {
+  margin: 0 auto;
+  color: white;
+  width: 100%;
+  height: calc(100vh - 76.3px);
+}
+
+.account-settings-content {
+  display: none;
+  position: relative;
+  margin: 0 auto;
+  height: calc(100vh - 76.3px);
+}
+
+.account-settings-title {
+  text-align: left;
+  padding-left: 15px;
+  border: 0;
+}
+
+.account-settings-title {
+  margin-top: 30px;
+  height: fit-content;
+}
+
+.account-settings-title h2 {
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  font-size: 2rem;
+}
+
+.profile-line {
+  display: flex;
+  width: 98%;
+  padding-left: 0px;
+  content: '';
+  margin: 10px auto 0;
+  height: 1px;
+  background-color: #ffffff;
+}
+
+.account-settings-body{
+  position: relative;
+  width: 100%;
+  height: calc(100% - 76.3px);
+  padding-left: 15px;
+}
+
+.account-settings-body div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.account-settings-body-subtitle {
+  font-size: 1.5rem;
+}
+
+.account-settings-body-content {
+  margin: 0 0 12px;
+}
+
+.account-settings-button {
+  border-radius: 10px;
+  font-family: 'Inter';
+  font-size: 15px;
+  width: 150px;
+  height: 40px;
+  border: none;
+  color: #ffffff;
+  background: #1A74FC;
+}
+
+.account-settings-button:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.delete-button {
+  display: block;
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+}
+
+.delete-button:hover  {
+  font-weight: bold;
+  background: #FF4500;
+  cursor: pointer;
+}
+
+.recommendations-content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.user-recommendations {
+  position: relative;
+}
+
+.user-recommendations-title, .games-list-title {
+  position: relative;
+  font-size: 2rem;
+  text-align: left;
+  font-weight: bold;
+  top: 0;
+  margin:30px auto 1rem;
+  padding-left: 20px;
+}
+
+.user-recommendations-images {
+  display: flex;
+
+  width: 70vw;
+  height: 30vh;
+  
+  margin: 0 auto;
+
+  border-radius: 15px;
+  background-color: #1C2C4E;
+}
+
+.user-recommendations-image {
+  display: flex;
+  position: relative;
+  
+  flex: 20%;
+  
+  margin: 0 auto;
+
+  justify-content: center;
+  text-align: center;
+}
+
+.user-recommendations-image img {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+
+  height: 24vh;
+
+  border-radius: 15px;
+}
+
+.user-recommendations-image span {
+  position: absolute;
+
+  width: 63px;
+
+  bottom: 10%;
+
+  z-index: 1;
+  background: linear-gradient(180deg, #76F2AE 0%, #0ECCF4 100%);
+  color: #000000;
+  font-weight: bold;
+  border-radius: 15px;
+}
+
+.outer-recommendations {
+  position: relative;
+}
+
+.games-list-content {
+  display: none;
+  position: relative;
+
+  height: calc(100vh - 76.3px);
+  width: 100%;
+}
+
+.games-list {
+  position: relative;
+}
+
+.games-list-images {
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 70vw;
+  height: auto;
+  max-height: 75vh;
+  
+  margin: 0 auto;
+  align-content: space-between;
+
+  overflow-y: auto;
+
+  border-radius: 15px;
+  background-color: #1C2C4E;
+}
+
+.games-list-image {
+  display: flex;
+  position: relative;
+
+  width: 70vw;
+  flex: 25%;
+  margin: 15px 0;
+
+  justify-content: center;
+  text-align: center;
+}
+
+.games-list-image img {
+  position: relative;
+
+  height: 24vh;
+  
+  border-radius: 15px;
+}
+
+.games-list-link {
+  position: absolute;
+
+  margin-top: 15px;
+  right: 50px;
+}
+
+.games-list-link a {
+  color: #ffffff;
+}
+
+@media screen and (max-width: 992px) {
+  .profile {
+    grid-template-columns: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .navbar-profile {
+    border-right: none;
+  }
+
+  .navbar-profile::after {
+    display: flex;
+    position: relative;
+
+    width: 90%;
+    height: 1px;
+
+    margin: 15px auto 0;
+
+    content: '';
+    background-color: #ffffff;
+  }
+
+  .user-recommendations-images {
+    height: auto;
+    flex-wrap: wrap;
+
+    align-content: space-between;
+  }
+
+  .user-recommendations-image {
+    margin: 15px auto;
+  }
+
+  .user-recommendations-image img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  
+    object-fit: cover;
+  
+    border-radius: 15px;
+  }
+
+  .games-list-images {
+    max-height: 100%;
+  
+    align-content: space-between;
+  }
+
+  .account-settings-title {
+    padding-left: 5%;
+  }
+
+  .account-settings-content .profile-line {
+    width: 90%;
+  }
+
+}
+
+/* Profile */
 
 /*992 - 768 - 576*/
 
@@ -651,470 +1038,7 @@ textarea {
   text-decoration: none;
 }
 
-/*.pagination {
-  position: absolute;
-  align-items: center;
-  left: 50%;
-  transform: translate(-50%,0);
-  align-self: flex-end;
-}
 
-.pagination button {
-  border: 2px solid white;
-  width: 15px;
-  height: 15px;
-  font-weight: 100;
-  border-radius: 100%;
-  background-color: white;
-  cursor: pointer;
-}
-
-.pagination button:focus-within {
-  border: 2px solid #0ECCF4;
-  background-color: #0ECCF4;
-  transition: all 0.50s ease;
-}
-
-.pagination button:not(:last-child) {margin-right: 10px;}*/
-
-.profile {
-  background-color: #020E27;
-  width: 100vw;
-  height: 100vh;
-}
-
-#profile-body {
-  margin-top: 85.31px;
-  position: absolute;
-  width: 100%;
-  display: grid;
-  height: 95%;
-  grid-template-columns: 25% 75%;
-  grid-template-areas: 
-    "p1 p2"
-}
-
-.p1 {
-  display: grid;
-  grid-template-rows: 40% 60%;
-  grid-template-areas: 
-    "p3"
-    "p4";
-  color: white;
-  border-right: 1px solid white;
-  text-align: center;
-}
-
-.p3 {
-  width: 90%;
-  position: relative;
-  margin: 0 auto;
-  border-bottom: 1px solid white;
-}
-
-.p3 a {
-  display: block;
-  margin-top: 10%;
-  color: white;
-  height: fit-content;
-  font-size: 10rem;
-}
-
-.p3 h1 {
-  font-size: 32px;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.p3 span {
-  color: #76F2AE;
-  font-size: 16px;
-}
-
-.p4 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  height: fit-content;
-}
-
-.p4 ul li {
-  margin-top: 60px;
-  cursor: pointer;
-}
-
-.p2 {
-  display: grid;
-  grid-template-rows: 50% 50%;
-  grid-template-areas: 
-    "p5"
-    "p6";
-  color: white;
-}
-
-#recomendaciones {
-  display: block;
-  font-weight: bold;
-}
-
-#gamelist {
-  display: block;
-}
-
-#conections {
-  display: block;
-}
-
-.p2 #settings {
-  display: none;
-}
-
-#d1 {
-  position: relative;
-  display: none;
-  grid-template-rows: 50% 50%;
-  grid-template-areas: 
-    "d1_1"
-    "d1_2";
-  height: 100%;
-  width: 100%;
-}
-
-#d1 div {
-  margin-top: 30px;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  height: fit-content;
-  text-align: left;
-  width: 95%;
-}
-
-#d1 div h1 {
-  font-size: 48px;
-  text-align: left;
-  font-weight: bold;
-  width: 100%;
-  top: 0;
-  margin: 0 auto!important;
-  padding-left: 2.5%;
-  padding-bottom: 10px;
-}
-
-.anchor {
-  font-size: 16px;
-  display: block;
-  text-decoration: underline;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  color: white;
-  cursor: pointer;
-}
-
-.d1_1 {
-  position: relative;
-  display: grid;
-  grid-template-rows: 15% 75% 10%;
-  grid-template-areas: 
-    "title"
-    "d1_images"
-    "anchor";
-  height: 100%;
-  width: 95%;
-}
-
-.d1_anchor {
-  padding-top: 5px;
-  padding-left: 2.5%;
-}
-
-.d1_2 {
-  position: absolute;
-  top: 80%;
-  display: grid;
-  grid-template-rows: 15% 75% 10%;
-  grid-template-areas: 
-    "title"
-    "d1_images"
-    "anchor";
-  height: 100%;
-  width: 95%;
-}
-
-.title {
-  position: relative;
-}
-
-.d1_images {
-  display: grid!important;
-  margin-left: 2.5%!important;
-  border-radius: 15px;
-  width: 95%!important;
-  grid-template-rows: auto auto;
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-template-areas: 
-    "s3 s4 s5 s6 s7";
-  background-color: #1C2C4E;
-  margin-top: 0!important;
-}
-
-.d1_images div img {
-  width: 85%;
-  height: auto;
-  z-index: 1;
-  position: relative;
-  display: block;
-  margin: auto;
-  border-radius: 15px;
-}
-
-.d1_images div #discount {
-  margin: 0;
-  top: -20px!important;
-  left: -10px!important;
-}
-
-#d2 {
-  position: relative;
-  display: none;
-  height: 100%;
-  width: 100%;
-}
-
-#d2 div {
-  margin-top: 30px;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  height: fit-content;
-  text-align: left;
-  width: 95%;
-}
-
-#d2 div h1 {
-  font-size: 48px;
-  text-align: left;
-  font-weight: bold;
-  width: 100%;
-  top: 0;
-  margin: 0 auto!important;
-  padding-left: 2.5%;
-  padding-bottom: 10px;
-}
-
-.d2_1 {
-  position: relative;
-  display: grid;
-  grid-template-rows: 15% 75% 10%;
-  grid-template-areas: 
-    "title"
-    "d2_images"
-    "anchor";
-  height: 100%;
-  width: 95%;
-}
-
-.d2_images {
-  width: 90%;
-  display: grid!important;
-  margin-top: 0!important;
-  grid-template-rows: auto auto;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-area: "s1 s2 s3 s4"
-  "s5 s6 s7 s8";
-}
-
-.d2_images div img {
-  width: 85%;
-  height: auto;
-  z-index: 1;
-  position: relative;
-  display: block;
-  margin: auto;
-  border-radius: 15px;
-}
-
-.d2_1 a {
-  left: 0;
-  margin-top: 10px;
-}
-
-#d3  {
-  position: relative;
-  display: none;
-  height: 100%;
-  width: 100%;
-}
-
-#d3 div {
-  margin-top: 30px;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  height: fit-content;
-  text-align: left;
-  width: 95%;
-}
-
-#d3_1 .title h1 {
-  font-size: 48px;
-  text-align: left;
-  font-weight: bold;
-  width: 100%;
-  top: 0;
-  margin: 0 auto!important;
-  padding-left: 2.5%;
-  padding-bottom: 10px;
-}
-
-#d3 div .d3_connections {
-  background-color: #1C2C4E;
-  width: 90%;
-  display: flex;
-  margin-left: 40px;
-  border-radius: 5px;
-  height: fit-content;
-  vertical-align: middle;
-}
-
-#d3 .d3_connections .d3_images {
-  display: grid!important;
-  margin: 15px auto 15px 0;
-  width: 30%;
-  grid-template-columns: 25% 25% 25% 25%;
-}
-
-.d3_images a img {
-  display: block;
-  position: relative;
-  margin: auto;
-  width: 70px;
-  height: 70px;
-  max-width: 70px;
-  max-height: 70px;
-}
-
-.d3_images a {
-  border-right: 2px solid white;
-}
-
-#d3 .d3_connections .d3_add {
-  position: absolute;
-  width: auto;
-  color: white;
-  margin: 38px 15px 15px 32%;
-}
-
-#d3 .d3_connections .d3_add .d3_anchor {
-  color: white;
-  text-decoration: underline;
-}
-
-#d3 #d3_2 {
-  margin-top: 0px;
-}
-
-#d3_2 .title h1 {
-  font-size: 24px;
-  text-align: left;
-  font-weight: bold;
-  width: 100%;
-  top: 0;
-  margin: 0 auto!important;
-  padding-left: 2.5%;
-  padding-bottom: 10px;
-}
-
-#d3_2 .settings {
-  background-color: #1C2C4E;
-  width: 90%;
-  display: flex;
-  margin-left: 40px;
-  border-radius: 5px;
-  height: fit-content;
-  vertical-align: middle;
-  align-items: center;
-  justify-content: center;
-}
-
-#d3_2 .settings ul {
-  width: 100%;
-  padding: 15px;
-  font-size: 24px;
-}
-
-#d3_2 .settings ul li {
-  padding: 20px;
-}
-
-#d3_2 .settings ul li input {
-  margin: 0;
-  float: right;
-  width: 22px;
-  height: 22px;
-  outline: 1px solid linear-gradient(180deg, #76F2AE 0%, #0ECCF4 100%);;
-}
-
-#d3_2 .settings ul li:not(:last-child) {
-  border-bottom: 1px solid white;
-}
-
-#d4 {
-  position: relative;
-  display: grid;
-  height: 100%;
-  width: 100%;
-}
-
-#d4 div {
-  margin-top: 30px;
-  display: inline-block;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  height: fit-content;
-  text-align: left;
-  border-bottom: 1px solid white;
-  width: 95%;
-  cursor: pointer;
-}
-
-#d4 .d4_1 {
-  border: 0;
-}
-
-#d4 div h1 {
-  position: relative;
-  margin: auto;
-  padding-top: -10px;
-  width: 100%;
-
-  font-size: 36px;
-  text-align: left;
-  font-weight: 100;
-}
-
-#d4 div:first-child h1 {
-  font-size: 48px;
-  font-weight: bold;
-}
-
-#d4 div:not(:first-child) {
-  margin-top: 80px;
-}
-
-#d4 div p {
-  color: white;
-  font-size: 18px;
-  line-height: 36px;
-  padding-bottom: 10px;
-}
 
 /* Community categories*/
 

@@ -13,329 +13,252 @@
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-    <title>GameDeals - {{ current_user.username }}</title>
+    <title>GameDeals - Profile</title>
 
     <script>
+        function openSetting(settingId, contentId){
+            const settings = ['recommendations', 'games-list', 'account-settings'];
+            const contents = ['account-settings-content', 'recommendations-content', 'games-list-content'];
+            settings.forEach((setting) => {
+                const settingElement = document.getElementById(setting);
+                settingElement.style.fontWeight = setting === settingId ? "bold" : "100";
+            });
 
-        function openRecomendaciones(){
-            l1 = document.getElementById("l1");
-            l2 = document.getElementById("l2");
-            l3 = document.getElementById("l3");
-            l4 = document.getElementById("l4");
-
-            d1 = document.getElementById("d1");
-            d2 = document.getElementById("d2");
-            d3 = document.getElementById("d3");
-            d4 = document.getElementById("d4");
-
-            l1.style.fontWeight = "bold";
-            l2.style.fontWeight = "100";
-            l3.style.fontWeight = "100";
-            l4.style.fontWeight = "100";
-
-            d1.style.display = "grid";
-            d2.style.display = "none";
-            d3.style.display = "none";
-            d4.style.display = "none";
-
-            console.log(d4.style.display);
-        }
-
-        function openGameList(){
-            l1 = document.getElementById("l1");
-            l2 = document.getElementById("l2");
-            l3 = document.getElementById("l3");
-            l4 = document.getElementById("l4");
-
-            d1 = document.getElementById("d1");
-            d2 = document.getElementById("d2");
-            d3 = document.getElementById("d3");
-            d4 = document.getElementById("d4");
-
-            l1.style.fontWeight = "100";
-            l2.style.fontWeight = "bold";
-            l3.style.fontWeight = "100";
-            l4.style.fontWeight = "100";
-
-            d1.style.display = "none";
-            d2.style.display = "grid";
-            d3.style.display = "none";
-            d4.style.display = "none";
-        }
-
-        function openConections(){
-            l1 = document.getElementById("l1");
-            l2 = document.getElementById("l2");
-            l3 = document.getElementById("l3");
-            l4 = document.getElementById("l4");
-
-            d1 = document.getElementById("d1");
-            d2 = document.getElementById("d2");
-            d3 = document.getElementById("d3");
-            d4 = document.getElementById("d4");
-
-            l1.style.fontWeight = "100";
-            l2.style.fontWeight = "100";
-            l3.style.fontWeight = "bold";
-            l4.style.fontWeight = "100";
-
-            d1.style.display = "none";
-            d2.style.display = "none";
-            d3.style.display = "grid";
-            d4.style.display = "none";
-        }
-
-        function openSettings(){
-            l1 = document.getElementById("l1");
-            l2 = document.getElementById("l2");
-            l3 = document.getElementById("l3");
-            l4 = document.getElementById("l4");
-
-            d1 = document.getElementById("d1");
-            d2 = document.getElementById("d2");
-            d3 = document.getElementById("d3");
-            d4 = document.getElementById("d4");
-            
-            l1.style.fontWeight = "100";
-            l2.style.fontWeight = "100";
-            l3.style.fontWeight = "100";
-            l4.style.fontWeight = "bold";
-
-            d1.style.display = "none";
-            d2.style.display = "none";
-            d3.style.display = "none";
-            d4.style.display = 'grid';
-
-            console.log(d4.style.display);
+            contents.forEach((content) => {
+                const contentElement = document.getElementById(content);
+                contentElement.style.display = content === contentId ? "block" : "none";
+            });
         }
 
         function logOut(){
             window.location.href='/logout';
         }
-    </script>
+        window.onload = function (){
+            let document_title = document.getElementsByTagName('title')[0];
+            var id = document_title.textContent.split(" ")[2]
+            var element = document.getElementById(id);
+            element.style.fontWeight = "bold";
+            element.style.color = "#ffffff";
 
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            text-decoration: none;
-            list-style: none;  
+            document.getElementById('recommendations').style.fontWeight = "bold";
         }
-        body {
-            text-decoration: none;
-            list-style: none;
-            min-height: 100vh;
+
+        function openDialog(dialogId){
+            const dialogArray = ['password-change', 'username-change', 'delete-account']
+            const dialog = document.getElementById('profile-dialog');
+
+            dialogArray.forEach((content) => {
+                    const contentElement = document.getElementById(content);
+                    contentElement.style.display = content === dialogId ? "block" : "none";
+                });
+
+            document.addEventListener("click", (event) => {
+                if (event.target.classList.contains("openDialogButton")) {
+                    dialog.showModal();
+                } else if (event.target.id === "dialogCloseButton") {
+                    dialog.close();
+                }
+            });
         }
-        #l5:hover {
-            color: red;
-        }
-    </style>
+    </script>
 
 </head>
 
 <body>
-    <div class="profile">
-        <header>
-            <a href="#" class=logo><img src="{{ url_for('static',filename='logo3.png') }}"/></a>
-
-            <ul class="navbar">
-                <li><a href="/home">Página Principal</a></li>
-                <li><a href="/catalog">Catálogo</a></li>
-                <li><a href="/community">Comunidad</a></li>
+    <header class="home-header">
+        <a href="/home" class=logo><img src="{{ url_for('static',filename='logo.webp') }}"/></a>
+        <div class="navbar">
+            <ul class="navbar-list">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/catalog">List</a></li>
+                <li><a href="/community">Community</a></li>
                 <li><a href="/review">Reviews</a></li>
             </ul>
-
-            <div class="main">
-                <a href="/profile" class="user"><i class="ri-user-fill"></i></a>
-            </div>
-        </header>
-
-        <div id="profile-body">
-            <div class="p1">
-                <div class="p3">
-                    <a href="/profile" class="user"><i class="ri-user-fill"></i></a>
+        </div>
+        <div class="user">
+            <a id="Profile" href="/profile" class="user-icon"><i class="ri-user-fill"></i></a>
+        </div>
+    </header>
+    <main>
+        <div class="profile">
+            <div class="navbar-profile">
+                <div class="profile-icon">
+                    <a href="/profile" class="profile-user"><i class="ri-user-fill"></i></a>
                     <h1>{{ current_user.username }}</h1>
-                    <span>Online</span>
+                    <span id='Status'>Online</span>
                 </div>
-                <div class="p4">
-                    <ul>
-                        <li onclick="openRecomendaciones()" id="l1">Recomendaciones</li>
-                        <li onclick="openGameList()" id="l2">Lista de Juegos</li>
-                        <li onclick="openConections()" id="l3">Conexiones</li>
-                        <li onclick="openSettings()" id="l4" style="font-weight: bold;">Ajuste de cuenta</li>
-                        <li onclick="logOut()" id="l5">Cerrar Sesión</li>
+                <div class="profile-options">
+                    <ul class="options-list">
+                        <li onclick="openSetting('recommendations', 'recommendations-content')" id="recommendations">Recommendations</li>
+                        <li onclick="openSetting('games-list', 'games-list-content')" id="games-list">Games List</li>
+                        <li onclick="openSetting('account-settings', 'account-settings-content')" id="account-settings">Account Settings</li>
+                        <li onclick="logOut()" id="log-out">Log Out</li>
                     <ul>
                 </div>
             </div>
-            <div class="p2">
-                <div id="d4">
-                    <div class="d4_1">
-                        <h1>Ajuste de cuenta</h1>
+            <div class="profile-content">
+                <div class="account-settings-content" id="account-settings-content">
+                    <div class="account-settings-title">
+                        <h2>My account</h2>
                     </div>
-                    <div class="d4_2">
-                        <h1>Información de cuenta</h1>
-                        <p>Administra tus datos que se muestran y datos personales, como tu nombre y real y correo electrónico.</p>
-                    </div>
-                    <div class="d4_3">
-                        <h1>Seguridad y Privacidad</h1>
-                        <p>Cambio de contraseña y ajuste de preferencias de colección de datos</p>
-                    </div>
-                    <div class="d4_4">
-                        <h1>Preferencias</h1>
-                        <p>Ayúdanos a ayudarte y mejorar nuestra plataforma para que tengas una experiencia más personalizada</p>
-                    </div>
-                </div>
-                <div id="d1">
-                    <div class="d1_1">
-                        <h1 class="title">COMO EN CASA</h1>
-                        <div class="d1_images">
-                            <div class="s3">
-                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
-                                <div id="discount">
-                                    <span>15%</span>
-                                </div>
-                            </div>
-                            <div class="s4">
-                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
-                                <div id="discount">
-                                    <span>15%</span>
-                                </div>
-                            </div>
-                            <div class="s5">
-                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
-                                <div id="discount">
-                                    <span>15%</span>
-                                </div>
-                            </div>
-                            <div class="s6">
-                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
-                                <div id="discount">
-                                    <span>15%</span>
-                                </div>
-                            </div>
-                            <div class="s7">
-                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
-                                <div id="discount">
-                                    <span>15%</span>
-                                </div>
-                            </div>
+                    <div class="profile-line"></div>
+                    <div class="account-settings-body">
+                        <div>
+                            <h3 class="account-settings-body-subtitle">Username</h3>
+                            <button class="account-settings-button openDialogButton"
+                                onclick="openDialog('username-change')" type="button">Edit Username</button>
                         </div>
-                        <div class="d1_anchor">
-                            <a href="#" class="anchor">Más...</a>
+                        <div>
+                            <h3 class="account-settings-body-subtitle">Password</h3>
+                            <button class="account-settings-button openDialogButton"
+                                onclick="openDialog('password-change')" type="button">Edit Password</button>
                         </div>
-                    </div>
-                    <div class="d1_2">
-                        <h1 class="title">EXPERMIENTA UN POCO</h1>
-                        <div class="d1_images">
-                            <div class="s3">
-                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
-                                <div id="discount">
-                                    <span>15%</span>
-                                </div>
-                            </div>
-                            <div class="s4">
-                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
-                                <div id="discount">
-                                    <span>15%</span>
-                                </div>
-                            </div>
-                            <div class="s5">
-                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
-                                <div id="discount">
-                                    <span>15%</span>
-                                </div>
-                            </div>
-                            <div class="s6">
-                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
-                                <div id="discount">
-                                    <span>15%</span>
-                                </div>
-                            </div>
-                            <div class="s7">
-                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
-                                <div id="discount">
-                                    <span>15%</span>
-                                </div>
-                            </div>
+                        <div>
+                            <h3 class="account-settings-body-subtitle">Preferences</h3>
+                            <button class="account-settings-button" onclick="" type="button">Edit Preferences</button>
                         </div>
-                        <div class="d1_anchor">
-                            <a href="#" class="anchor">Más...</a>
+                        <div>
+                            <button class="account-settings-button delete-button openDialogButton" 
+                                onclick="openDialog('delete-account')" type="button">Delete Account</button>
                         </div>
                     </div>
                 </div>
-                <div id="d2">
-                    <div class="d2_1">
-                        <h1 class="title">Tu lista de juegos</h1>
-                        <div class="d2_images">
-                            <div class="s1">
+                <div class="recommendations-content", id="recommendations-content">
+                    <div class="user-recommendations">
+                        <h2 class="user-recommendations-title">LIKE AT HOME</h2>
+                        <div class="user-recommendations-images">
+                            <div class="user-recommendations-image">
                                 <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <span>15%</span>
                             </div>
-                            <div class="s2">
+                            <div class="user-recommendations-image">
                                 <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <span>15%</span>
                             </div>
-                            <div class="s3">
+                            <div class="user-recommendations-image">
                                 <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <span>15%</span>
                             </div>
-                            <div class="s4">
+                            <div class="user-recommendations-image">
                                 <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <span>15%</span>
                             </div>
-                            <div class="s5">
+                            <div class="user-recommendations-image">
                                 <img src="{{ url_for('static',filename='likehome.png') }}"/>
-                            </div>
-                            <div class="s6">
-                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
-                            </div>
-                            <div class="s7">
-                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
-                            </div>
-                            <div class="s8">
-                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <span>15%</span>
                             </div>
                         </div>
-                        <div class="anchor">
-                            <a>Añadir juegos...</a>
+                    </div>
+                    <div class="outer-recommendations">
+                        <h2 class="user-recommendations-title">EXPERIENCE A BIT</h2>
+                        <div class="user-recommendations-images">
+                            <div class="user-recommendations-image">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <span>15%</span>
+                            </div>
+                            <div class="user-recommendations-image">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <span>15%</span>
+                            </div>
+                            <div class="user-recommendations-image">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <span>15%</span>
+                            </div>
+                            <div class="user-recommendations-image">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <span>15%</span>
+                            </div>
+                            <div class="user-recommendations-image">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                                <span>15%</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div id="d3">
-                    <div id="d3_1">
-                        <div class="title">
-                            <h1>Tus plataformas conectadas</h1>
-                        </div>
-                        <div class="d3_connections">
-                            <div class="d3_images">
-                                <a href="#"><img src="{{ url_for('static',filename='connections1.png') }}"/></a>
-                                <a href="#"><img src="{{ url_for('static',filename='connections2.png') }}"/></a>
-                                <a href="#"><img src="{{ url_for('static',filename='connections3.png') }}"/></a>
-                                <a href="#"><img src="{{ url_for('static',filename='connections4.png') }}"/></a>
+                <div class="games-list-content" id="games-list-content">
+                    <div class="games-list">
+                        <h3 class="games-list-title">Your games list</h3>
+                        <div class="games-list-images">
+                            <div class="games-list-image">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
                             </div>
-                            <div class="d3_add">
-                                <a class="d3_anchor">Añadir nueva conexión...</a>
+                            <div class="games-list-image">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                            </div>
+                            <div class="games-list-image">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                            </div>
+                            <div class="games-list-image">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                            </div>
+                            <div class="games-list-image">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                            </div>
+                            <div class="games-list-image">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                            </div>
+                            <div class="games-list-image">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
+                            </div>
+                            <div class="games-list-image">
+                                <img src="{{ url_for('static',filename='likehome.png') }}"/>
                             </div>
                         </div>
                     </div>
-                    <div id="d3_2">
-                        <div class="title">
-                            <h1>Ajustes de conexión</h1>
-                        </div>
-                        <div class="settings">
-                            <ul>
-                                <li>Mostar en perfil<input type="checkbox" id="cbox1" value="first_checkbox"></li>
-                                <li>Mostrar en status de juego<input type="checkbox" id="cbox1" value="first_checkbox"></li>
-                                <li>Mostrar detalles en perfil<input type="checkbox" id="cbox1" value="first_checkbox"></li>
-                                <li>Autocompletar lista de juegos</li>
-                                <li style="text-decoration: underline;">Vincular reseñas...</li>
-                                <li style="text-decoration: underline;">Eliminar conexión...</li>
-                            </ul>
-                        </div>
+                    <div class="games-list-link">
+                        <a href="/catalog">Añadir juegos...</a>
                     </div>
                 </div>
             </div>
         </div>
-
-    </div>
+    </main>
+    <dialog id="profile-dialog" class="profileUpdate">
+        <div class="parentRegister" id="username-change" style="display:none">
+            <div class="registerHeader">
+                <h2>Update your username</h2>
+                <button id="dialogCloseButton">X</button>
+            </div>
+            <div class="parentRegisterLine"></div>
+            <div class="registerForm">
+                <form method="POST" action="/profile">
+                    <input type="text" name="username" style="display:none" value="{{current_user.username}}">
+                    <input type="text" name="new-username" class="formControl" placeholder="New username">
+                    <input type="password" name="current-password" class="formControl" placeholder="Password">
+                    <button name="button" type="submit" class="button registerSignUp" value="username-edit">Done</button>
+                </form>
+            </div>
+        </div>
+        <div class="parentRegister" id="password-change" style="display:none">
+            <div class="registerHeader">
+                <h2>Update your password</h2>
+                <button id="dialogCloseButton">X</button>
+            </div>
+            <div class="parentRegisterLine"></div>
+            <div class="registerForm">
+                <form method="POST" action="/profile">
+                    <input type="text" name="username" style="display:none" value="{{current_user.username}}">
+                    <input type="password" name="current-password" class="formControl" placeholder="Current password">
+                    <input type="password" name="new-password" class="formControl" placeholder="New password">
+                    <input type="password" name="confirm-password" class="formControl" placeholder="Confirm new password">
+                    <button name="button" type="submit" class="button registerSignUp" value="password-edit">Done</button>
+                </form>
+            </div>
+        </div>
+        <div class="parentRegister" id="delete-account" style="display:none">
+            <div class="registerHeader">
+                <h2>Delete Account</h2>
+                <button id="dialogCloseButton">X</button>
+            </div>
+            <div class="parentRegisterLine"></div>
+            <div class="registerForm">
+                <form action="/profile">
+                    <input type="text" name="username" style="display:none" value="{{current_user.username}}">
+                    <button name="button" name="delete-account" type="submit" 
+                        class="button registerSignUp" value="delete-account">Delete</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
 </body>
-
 
 </html>

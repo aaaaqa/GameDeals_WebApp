@@ -18,7 +18,7 @@
     <script>
         window.onload = function (){
             let document_title = document.getElementsByTagName('title')[0];
-            var id = document_title.innerHTML.split(" ")[2]
+            var id = document_title.textContent.split(" ")[2]
             var element = document.getElementById(id);
             element.style.fontWeight = "bold";
             element.style.color = "#ffffff";
@@ -56,8 +56,8 @@
                         <div>HOT SALES</div>
                     </div>
                     <div class="hot-sales-wrapper">
-                        {% for (title, discount, image, total) in list %}
-                            <a class="hot-sale" href="#">
+                        {% for (title, discount, image, total, link) in list %}
+                            <a class="hot-sale" href="{{link}}">
                                 <div class="hot-sale-content">
                                     <img class="hot-sale-img" src="{{image}}"/>
                                     <div class="hot-sale-title">
